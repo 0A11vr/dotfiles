@@ -1,0 +1,92 @@
+
+*.font: monospace:size=14
+! Colors
+!URxvt.borderColor:  #f2f0ec
+*.foreground:   #515151
+*.background:   #f2f0ec
+*.cursorColor: #515151
+
+! Black
+st.color0:       #515151
+st.color8:       #515151
+
+! Red
+st.color1:       #f2777a
+st.color9:       #f2777a
+
+! Green
+st.color2:       #99cc99
+st.color10:      #99cc99
+
+! Yellow
+st.color3:       #ffcc66
+st.color11:      #ffcc66
+
+! Blue
+st.color4:       #6699cc
+st.color12:      #6699cc
+
+! Magenta
+st.color5:       #cc99cc
+st.color13:      #cc99cc
+
+! Cyan
+st.color6:       #66cccc
+st.color14:      #66cccc
+
+! White
+st.color7:       #d3d0c8
+st.color15:      #d3d0c8
+
+! ROFI
+rofi.color-window:    #f2f0ec , #f2f0ec , #f2f0ec , #f2f0ec , #515151
+rofi.color-normal:    #f2f0ec , #515151 , #f2f0ec , #d3d0c8 , #515151
+rofi.color-active:    #515151 , #515151 , #f2f0ec , #515151 , #f2f0ec
+rofi.color-urgent:    #f2f0ec , #515151 , #f2f0ec , #f2f0ec , #515151
+
+rofi.fake-transparency : true
+rofi.font              : Equity Text B 18
+rofi.columns           : 1
+rofi.separator-style   : none
+rofi.hide-scrollbar    : true
+rofi.location          : 0
+rofi.yoffset           : 0
+rofi.xoffset           : 0
+rofi.padding           : 32
+rofi.fullscreen        : false
+rofi.width             : 650
+rofi.lines             : 3
+
+Xft.dpi: 96
+Xft.antialias: true
+!Xft.hinting: true
+!Xft.rgba: rgb
+!!Xft.autohint: true
+Xft.hintstyle: hintslight
+!Xft.lcdfilter: lcddefault
+
+! 2bwm
+
+twobwm.border_width: 0
+twobwm.outer_border: 0
+twobwm.focus_color: #515151
+twobwm.unfocus_color: #f2f0ec
+twobwm.fixed_color: #6699cc
+twobwm.unkill_color: #66cccc
+twobwm.outer_border_color: #F2F0EC
+twobwm.fixed_unkill_color: #cc99cc
+twobwm.inverted_colors: false
+twobwm.enable_compton: true
+
+! RGB test
+! (242, 119, 122)
+
+! Expression test
+! 6699cc
+
+rofi.modi: window,drun
+!rofi.sidebar-mode: true
+rofi.kb-mode-next: Alt+l
+rofi.kb-mode-previous: Alt+h
+rofi.kb-row-up: Alt+k
+rofi.kb-row-down: Alt+j
