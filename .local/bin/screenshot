@@ -1,0 +1,30 @@
+#!/bin/sh
+
+date=$(date +%m.%d.%Y_%H:%M:%S)
+title=$(xdotool getactivewindow getwindowname)
+outfile="$XDG_PICTURES_DIR/screenshots/${date}_-_${title}.png"
+#icon="/usr/share/icons/Adwaita/24x24/devices/camera-photo-symbolic.symbolic.png"
+
+screenshot() {
+	case $1 in
+	area)
+		notify-send '📸 Select area to capture.'
+		maim -u -m 3 -s|xclip -selection clipboard -t image/png
+		notify-send -u normal '📸 Selection copied to clipboard'
+		#maim -u -m 3 -s "$outfile"; xclip -selection clipboard -t image/png < "$outfile"
+		#notify-send -u normal '📸 Screenshot copied to clipboard and saved to' "$outfile"
+		;;
+	wind)	
+		maim -u -m 3 -i "$(xdotool getactivewindow)" "$outfile"
+		dunstify -u normal '📸 Active window saved to' "$outfile"
+		;;
+	full)
+		maim -u -m 3 "$outfile"
+		dunstify -u normal '📸 Full screen saved to' "$outfile"
+		;;
+	*)	
+		;;
+	esac;
+}
+
+screenshot "$1"
