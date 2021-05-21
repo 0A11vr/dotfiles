@@ -1,0 +1,2 @@
+# Save all videos under YouTube directory in your home directory
+-o $XDG_MUSIC_DIR/%(title)s.%(ext)s
