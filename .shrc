@@ -1,0 +1,39 @@
+#
+# ~/.shrc
+#
+
+if [ "$(id -u)" -eq 0 ];
+        then PS1='# '
+        else PS1='$ '
+fi
+
+XDG_CONFIG_HOME=$HOME/.config; export XDG_CONFIG_HOME
+if [ -f ${XDG_CONFIG_HOME}/user-dirs.dirs ]; then
+	. ${XDG_CONFIG_HOME}/user-dirs.dirs
+	export XDG_DESKTOP_DIR
+	export XDG_DOWNLOAD_DIR
+	export XDG_TEMPLATES_DIR
+	export XDG_PUBLICSHARE_DIR
+	export XDG_DOCUMENTS_DIR
+	export XDG_MUSIC_DIR
+	export XDG_PICTURES_DIR
+	export XDG_VIDEOS_DIR
+	export XDG_DATA_HOME
+	export XDG_CACHE_HOME
+fi
+
+export _JAVA_AWT_WM_NONREPARENTING=1
+export PATH="$HOME/.local/bin:$PATH"
+export LESSHISTFILE=-
+export CARGO_HOME="$XDG_DATA_HOME"/cargo
+export SSB_HOME="$XDG_DATA_HOME"/zoom
+export EDITOR=vim
+
+
+
+
+
+#PS1='$ '
+#PS1='$ '
+#PS1='[\u@\h \W]\$ '
+#PS1='[$USER@$(cat /proc/sys/kernel/hostname) ~]\$ '
