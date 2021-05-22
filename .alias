@@ -2,8 +2,9 @@ alias dl='yt-dlp -x --add-metadata --embed-thumbnail --audio-quality 0 --audio-f
 alias yt-chapters='yt-dlp -x --audio-format mp3 --audio-quality 0 --split-chapters -o "%(title)s - %(chapter_number)s. %(chapter)s.%(ext)s"'
 alias yt-playlist='yt-dlp -x --audio-format mp3 --audio-quality 0 --yes-playlist -o "%(title)s - %(playlist_index)s. %(playlist)s.%(ext)s"'
 alias music='ncmpcpp'
-alias ls='ls --color=auto'
-alias psa="ps -A | grep"
-alias p="pgrep -f"
+alias ls='ls -xh --color=auto'
+alias open='xdg-open'
+alias reload-xresources='xrdb ~/.Xresources'
+alias refresh-font-cache='sudo fc-cache -f -v'
 alias startsowm="startx ~/.xinitrc sowm"
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
