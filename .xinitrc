@@ -22,7 +22,7 @@ session=${1:-2bwm}
 case $session in
     2bwm)	
 	        #exec dbus-run-session -- 2bwm;;
-		2bwm;;
+		exec 2bwm;;
     sowm) 	sxhkd -c ~/.config/sowm/sowmrc &
 		exec sowm;;
     # No known session, try to run it as command
