@@ -5,6 +5,7 @@ alias music='ncmpcpp'
 alias ls='ls -xh --color=auto'
 alias open='xdg-open'
 alias reload-xresources='xrdb ~/.Xresources'
-alias refresh-font-cache='sudo fc-cache -f -v'
+alias refresh-font-cache='fc-cache -r'
 alias startsowm="startx ~/.xinitrc sowm"
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias clip='xclip -sel c'
