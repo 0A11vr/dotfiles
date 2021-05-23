@@ -4,7 +4,7 @@
 !URxvt.borderColor:  #f2f0ec
 *.foreground:   #515151
 *.background:   #f2f0ec
-*.cursorColor: #515151
+*.cursorColor:  #515151
 
 ! Black
 st.color0:       #515151
