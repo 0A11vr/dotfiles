@@ -179,7 +179,7 @@ font:
 draw_bold_text_with_bright_colors: false
 
 schemes:
-  pencil_light: &light
+  pencil_light: &pencil_light
     # Default Colors
     selection:
       text:       '0xfb007a'
@@ -207,6 +207,35 @@ schemes:
       magenta: '0x6855de'
       cyan:    '0x4fb8cc'
       white:   '0xf1f1f1'
+
+  light: &light
+    # Default Colors
+    selection:
+      text:       '0x786178'
+      background: '0xf0f0f0'
+    primary:
+      background: '0xf0f0f0'
+      foreground: '0x363636'
+    # Normal Colors
+    normal:
+      black:   '0x4c4c4c'
+      red:     '0x786162'
+      green:   '0x617862'
+      yellow:  '0xB7936F'
+      blue:    '0x88a3ae'
+      magenta: '0x786178'
+      cyan:    '0x617878'
+      white:   '0xd3d3d3'
+    # Bright colors
+    bright:
+      black:   '0x575757'
+      red:     '0x786162'
+      green:   '0x617862'
+      yellow:  '0xB7936F'
+      blue:    '0x88a3ae'
+      magenta: '0x786178'
+      cyan:    '0x617878'
+      white:   '0xf5f5f5'
 
 colors: *light
 
