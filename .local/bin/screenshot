@@ -1,14 +1,15 @@
 #!/bin/sh
 
-date=$(date +%m.%d.%Y_%H:%M:%S)
+#date=$(date +%m.%d.%Y_%H:%M:%S)
+date=$(date +%m.%d.%Y_%H:%M)
 title=$(xdotool getactivewindow getwindowname)
-outfile="$XDG_PICTURES_DIR/screenshots/${date}_-_${title}.png"
+outfile="$XDG_PICTURES_DIR/screenshots/${title}_-_${date}.png"
 #icon="/usr/share/icons/Adwaita/24x24/devices/camera-photo-symbolic.symbolic.png"
 
 screenshot() {
 	case $1 in
 	area)
-		notify-send '📸 Select area to capture.'
+		#notify-send '📸 Select area to capture.'
 		maim -u -m 3 -s|xclip -selection clipboard -t image/png
 		notify-send -u normal '📸 Selection copied to clipboard'
 		#maim -u -m 3 -s "$outfile"; xclip -selection clipboard -t image/png < "$outfile"

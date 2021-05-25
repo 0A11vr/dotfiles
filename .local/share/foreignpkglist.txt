@@ -3,7 +3,6 @@ apg
 bash-complete-alias
 cava
 discord-canary-electron-bin
-discord_arch_electron
 downgrade
 flashfocus-git
 lemonbar-xft-git
@@ -13,6 +12,7 @@ mpdris2
 playerctl-git
 qomui-git
 rofi-git
+shellcheck-bin
 spotify-adblock-git
 teams
 vmware-horizon-client

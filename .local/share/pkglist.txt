@@ -1,3 +1,4 @@
+alacritty
 alsa-utils
 amd-ucode
 audacity
@@ -18,7 +19,6 @@ galculator
 gimp
 hsetroot
 htop
-kitty
 l3afpad
 lxappearance
 maim
