@@ -38,24 +38,15 @@ st.color14:      #66cccc
 st.color7:       #d3d0c8
 st.color15:      #d3d0c8
 
-! ROFI
-rofi.color-window:    #f2f0ec , #f2f0ec , #f2f0ec , #f2f0ec , #515151
-rofi.color-normal:    #f2f0ec , #515151 , #f2f0ec , #d3d0c8 , #515151
-rofi.color-active:    #515151 , #515151 , #f2f0ec , #515151 , #f2f0ec
-rofi.color-urgent:    #f2f0ec , #515151 , #f2f0ec , #f2f0ec , #515151
 
-rofi.fake-transparency : true
-rofi.font              : Equity Text B 18
-rofi.columns           : 1
-rofi.separator-style   : none
-rofi.hide-scrollbar    : true
-rofi.location          : 2
-rofi.yoffset           : 20
-rofi.xoffset           : 20
-rofi.padding           : 32
-rofi.fullscreen        : false
-rofi.width             : 650
-rofi.lines             : 3
+
+
+
+
+
+
+
+
 
 Xft.dpi: 96
 Xft.antialias: true
@@ -84,9 +75,4 @@ twobwm.enable_compton: true
 ! Expression test
 ! 6699cc
 
-rofi.modi: window,drun
-!rofi.sidebar-mode: true
-rofi.kb-mode-next: Alt+l
-rofi.kb-mode-previous: Alt+h
-rofi.kb-row-up: Alt+k
-rofi.kb-row-down: Alt+j
+
