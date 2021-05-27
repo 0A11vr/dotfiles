@@ -2,8 +2,8 @@
 
 #date=$(date +%m.%d.%Y_%H:%M:%S)
 date=$(date +%m.%d.%Y_%H:%M)
-title=$(xdotool getactivewindow getwindowname)
-outfile="$XDG_PICTURES_DIR/screenshots/${title}_-_${date}.png"
+title=$(xtitle)
+outfile="$XDG_PICTURES_DIR/screenshots/${date}_-_${title}.png"
 #icon="/usr/share/icons/Adwaita/24x24/devices/camera-photo-symbolic.symbolic.png"
 
 screenshot() {
