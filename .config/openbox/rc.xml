@@ -102,6 +102,17 @@
 	<!-- ******************* KEYBINDINGS ******************* -->
 	<keyboard>
 		<chainQuitKey />
+		<!-- Change Monitor -->
+		<keybind key="mod1-period">
+			<action name="MoveResizeTo">
+				<monitor>1</monitor>
+			</action>
+		</keybind>
+		<keybind key="mod1-comma">
+			<action name="MoveResizeTo">
+				<monitor>2</monitor>
+			</action>
+		</keybind>
 		<!-- Change Workspace/Desktop -->
 		<keybind key="A-1">
 			<action name="GoToDesktop">
