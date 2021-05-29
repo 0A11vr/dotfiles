@@ -5,11 +5,14 @@ cava
 discord-canary-electron-bin
 downgrade
 flashfocus-git
+ksuperkey
 lemonbar-xft-git
 librewolf-bin
 masterpdfeditor-free
 mpdris2
+obmenu-generator
 playerctl-git
+polybar
 qomui-git
 rofi-git
 shellcheck-bin
@@ -18,6 +21,7 @@ teams
 vmware-horizon-client
 wps-office
 xdotool-git
+xtitle-git
 yay
 youtube-dlp
 zoom

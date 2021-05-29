@@ -8,7 +8,6 @@ base
 bison
 dash
 dialog
-dmidecode
 dunst
 easytag
 emacs
@@ -16,6 +15,7 @@ exfat-utils
 firefox-extension-privacybadger
 firefox-ublock-origin
 galculator
+geany
 gimp
 hsetroot
 htop
@@ -32,11 +32,13 @@ net-tools
 nmap
 ntp
 numlockx
+obconf
 obs-studio
 patch
 pkgconf
 pulsemixer
 python-selenium
+qemu-guest-agent
 qmk
 ranger
 reflector
@@ -45,6 +47,8 @@ syslinux
 traceroute
 tree
 usbutils
+viewnior
+virt-manager
 wireshark-qt
 xclip
 xdg-user-dirs
@@ -52,5 +56,6 @@ xf86-video-amdgpu
 xorg-server
 xorg-xev
 xorg-xinit
+xorg-xkill
 xorg-xrandr
 xorg-xsetroot

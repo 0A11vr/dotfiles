@@ -7,7 +7,6 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 [[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
-[ -f ~/.Xmodmap ] && xmodmap ~/.Xmodmap
 
 xrandr --output DisplayPort-0 --mode 1920x1080 --rate 144.00 
 xrandr --output HDMI-A-0 --mode 1920x1080 --rate 60.00 
@@ -21,10 +20,11 @@ hsetroot -solid "#636161" &
 session=${1:-2bwm}
 case $session in
     2bwm)	
-	        #exec dbus-run-session -- 2bwm;;
+		[ -f ~/.Xmodmap ] && xmodmap ~/.Xmodmap
+		#exec dbus-run-session -- 2bwm;;
 		exec 2bwm;;
-    sowm) 	sxhkd -c ~/.config/sowm/sowmrc &
-		exec sowm;;
+    openbox) 	
+	    	exec openbox-session;;
     # No known session, try to run it as command
     *   )       
     		exec $1;;
