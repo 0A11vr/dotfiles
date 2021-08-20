@@ -3,7 +3,7 @@ configuration {
 	width: 650;
 	lines: 3;
 	columns: 1;
-	font: "Equity Text B 18";
+	font: "Public Sans 18";
 /*	bw: 1;*/
 	location: 2;
 	padding: 32;

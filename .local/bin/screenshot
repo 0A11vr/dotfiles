@@ -18,7 +18,7 @@ screenshot() {
 		#maim -u -m 3 -s "$outfile"; xclip -selection clipboard -t image/png < "$outfile"
 		#notify-send -u normal '📸 Screenshot copied to clipboard and saved to' "$outfile"
 		;;
-	wind)	
+	wind)
 		maim -u -m 3 -i "$(xdotool getactivewindow)" "$outfile"
 		dunstify -u normal '📸 Active window saved to' "$outfile"
 		;;
@@ -26,7 +26,7 @@ screenshot() {
 		maim -u -m 3 "$outfile"
 		dunstify -u normal '📸 Full screen saved to' "$outfile"
 		;;
-	*)	
+	*)
 		;;
 	esac;
 }

@@ -12,6 +12,7 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 call plug#begin('~/.vim/plugged')
 
 Plug 'fehawen/sl.vim'
+Plug 'preservim/nerdtree'
 
 call plug#end()
 
@@ -21,12 +22,12 @@ colorscheme bruin
 set linebreak
 set tabstop=4
 set softtabstop=4
-set expandtab
+" set expandtab
 set shiftwidth=4
 set autoindent
 
 " hide hidden chars
-:set nolist
+" :set nolist
 " show hidden characters in Vim
 :set list
 

@@ -15,6 +15,7 @@ fi
 xrandr --output DisplayPort-0 --mode 1920x1080 --rate 144.00
 xrandr --output HDMI-A-0 --mode 1920x1080 --rate 60.00
 
+xsettingsd &
 xsetroot -cursor_name left_ptr &
 numlockx &
 

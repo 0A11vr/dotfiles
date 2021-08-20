@@ -10,7 +10,6 @@
 
 source ~/.shrc
 source ~/.alias
-
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=10000
 HISTFILESIZE=10000
