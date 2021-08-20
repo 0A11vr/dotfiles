@@ -1,12 +1,12 @@
-7-zip
 apg
 bash-complete-alias
 cava
-discord-canary-electron-bin
+colorpicker
+discord-canary
 downgrade
 flashfocus-git
+freetube-bin
 ksuperkey
-lemonbar-xft-git
 librewolf-bin
 masterpdfeditor-free
 mpdris2
@@ -18,9 +18,9 @@ rofi-git
 shellcheck-bin
 spotify-adblock-git
 teams
+thunderbird-beta-bin
+ttf-wps-fonts
 vmware-horizon-client
-wps-office
-xdotool-git
 xtitle-git
 yay
 youtube-dlp
