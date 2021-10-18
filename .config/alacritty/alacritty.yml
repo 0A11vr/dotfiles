@@ -211,7 +211,7 @@ schemes:
   light: &light
     # Default Colors
     selection:
-      text:       '0x786178'
+      text:       '0x17BABA'
       background: '0xf0f0f0'
     primary:
       background: '0xf0f0f0'
