@@ -28,5 +28,4 @@ ttf-wps-fonts
 typora
 xtitle-git
 yay
-youtube-dlp-bin
 zoom
