@@ -7,5 +7,15 @@ alias open='xdg-open'
 alias reload-xresources='xrdb ~/.Xresources'
 alias refresh-font-cache='fc-cache -r'
 alias start-openbox="startx ~/.xinitrc openbox"
+alias start-bspwm="startx ~/.xinitrc bspwm"
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias clip='xclip -sel c'
+alias tlmgr='/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode'
+alias isuvpn='sudo openconnect VPN01.ILSTU.EDU'
+alias remove-orphans='sudo pacman -Rns $(pacman -Qqtd)'
+
+# cd
+alias 351='cd ~/Documents/ISU/fall2021/351/'
+alias 357='cd ~/Documents/ISU/fall2021/357/'
+alias 377='cd ~/Documents/ISU/fall2021/377/'
+alias 378='cd ~/Documents/ISU/fall2021/378/'
