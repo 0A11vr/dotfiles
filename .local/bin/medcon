@@ -1,0 +1,15 @@
+#!/bin/sh
+
+players=spotify,firefox,mpd
+
+mediacontrol() {
+    case $1 in
+        togp) playerctl play-pause -p "$players";;
+        prev) playerctl previous -p "$players";;
+        next) playerctl next -p "$players";;
+        togm) toggle_mic;;
+    esac;
+}
+
+mediacontrol "$1"
+
