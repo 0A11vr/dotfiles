@@ -1,4 +1,4 @@
-clear mod1
-clear mod3
-add mod1 = Alt_L
-add mod3 = Alt_R
+remove  mod1 = Alt_R
+add     mod3 = Alt_R
+remove  mod4 = Super_R
+add     mod5 = Super_R
