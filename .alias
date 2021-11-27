@@ -2,20 +2,25 @@ alias dl='yt-dlp -x --add-metadata --embed-thumbnail --audio-quality 0 --audio-f
 alias yt-chapters='yt-dlp -x --audio-format mp3 --audio-quality 0 --split-chapters -o "%(title)s - %(chapter_number)s. %(chapter)s.%(ext)s"'
 alias yt-playlist='yt-dlp -x --audio-format mp3 --audio-quality 0 --yes-playlist -o "%(title)s - %(playlist_index)s. %(playlist)s.%(ext)s"'
 alias music='ncmpcpp'
-alias ls='ls -xh --color=auto'
+#alias ls='ls -xh --color=auto'
 alias open='xdg-open'
 alias reload-xresources='xrdb ~/.Xresources'
 alias refresh-font-cache='fc-cache -r'
-alias start-openbox="startx ~/.xinitrc openbox"
-alias start-bspwm="startx ~/.xinitrc bspwm"
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias clip='xclip -sel c'
 alias tlmgr='/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode'
-alias isuvpn='sudo openconnect VPN01.ILSTU.EDU'
 alias remove-orphans='sudo pacman -Rns $(pacman -Qqtd)'
+#alias rel='xrdb merge $HOME/.Xresources && kill -USR1 $(pidof st)'
+alias ranger='export TERM=st-mono && ranger'
+alias startx='startx ~/.xinitrc'
 
 # cd
 alias 351='cd ~/Documents/ISU/fall2021/351/'
 alias 357='cd ~/Documents/ISU/fall2021/357/'
 alias 377='cd ~/Documents/ISU/fall2021/377/'
 alias 378='cd ~/Documents/ISU/fall2021/378/'
+
+#old
+#alias start-openbox="startx ~/.xinitrc openbox"
+#alias start-bspwm="startx ~/.xinitrc bspwm"
+

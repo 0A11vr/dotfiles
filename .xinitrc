@@ -19,16 +19,22 @@ xsettingsd &
 xsetroot -cursor_name left_ptr &
 numlockx &
 
-session=${1:-2bwm}
+session=${1:-bspwm}
 case $session in
-	2bwm)
-		#exec dbus-run-session -- 2bwm;;
-		#hsetroot -solid "#303030" &
-		hsetroot -solid "#636161" &
-		exec 2bwm;;
-	openbox)
-		exec openbox-session;;
-    # No known session, try to run it as command
+    2bwm)
+        #exec dbus-run-session -- 2bwm;;
+        #hsetroot -solid "#303030" &
+        hsetroot -solid "#636161" &
+        exec 2bwm;;
+    openbox)
+        exec openbox-session;;
+    bspwm)
+        #hsetroot -solid "#636161" &
+        hsetroot -cover Pictures/oMuGsZb.jpg &
+        sxhkd &
+        exec bspwm;;
+# No known session, try to run it as command
     *   )
-		exec $1;;
+        exec $1;;
 esac
+
