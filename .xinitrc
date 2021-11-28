@@ -29,7 +29,6 @@ case $session in
     openbox)
         exec openbox-session;;
     bspwm)
-        #hsetroot -solid "#636161" &
         hsetroot -cover Pictures/oMuGsZb.jpg &
         sxhkd &
         exec bspwm;;

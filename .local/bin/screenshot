@@ -7,28 +7,28 @@ outfile="$XDG_PICTURES_DIR/screenshots/${date}_-_${title}.png"
 #icon="/usr/share/icons/Adwaita/24x24/devices/camera-photo-symbolic.symbolic.png"
 
 screenshot() {
-	case $1 in
-	area)
-		maim -u -m 3 -s /tmp/tmp.png; \
-		xclip -sel c -t image/png /tmp/tmp.png; \
-		gpicview /tmp/tmp.png
-		#notify-send '📸 Select area to capture.'
-		#maim -u -m 3 -s|xclip -selection clipboard -t image/png
-		#notify-send -u normal '📸 Selection copied to clipboard'
-		#maim -u -m 3 -s "$outfile"; xclip -selection clipboard -t image/png < "$outfile"
-		#notify-send -u normal '📸 Screenshot copied to clipboard and saved to' "$outfile"
-		;;
-	wind)
-		maim -u -m 3 -i "$(xdotool getactivewindow)" "$outfile"
-		dunstify -u normal '📸 Active window saved to' "$outfile"
-		;;
-	full)
-		maim -u -m 3 "$outfile"
-		dunstify -u normal '📸 Full screen saved to' "$outfile"
-		;;
-	*)
-		;;
-	esac;
+    case $1 in
+    area)
+        maim -u -m 3 -s /tmp/tmp.png; \
+        xclip -sel c -t image/png /tmp/tmp.png; \
+        viewnior /tmp/tmp.png
+        #notify-send '📸 Select area to capture.'
+        #maim -u -m 3 -s|xclip -selection clipboard -t image/png
+        #notify-send -u normal '📸 Selection copied to clipboard'
+        #maim -u -m 3 -s "$outfile"; xclip -selection clipboard -t image/png < "$outfile"
+        #notify-send -u normal '📸 Screenshot copied to clipboard and saved to' "$outfile"
+        ;;
+    wind)
+        maim -u -m 3 -i "$(xdotool getactivewindow)" "$outfile"
+        dunstify -u normal '📸 Active window saved to' "$outfile"
+        ;;
+    full)
+        maim -u -m 3 "$outfile"
+        dunstify -u normal '📸 Full screen saved to' "$outfile"
+        ;;
+    *)
+        ;;
+    esac;
 }
 
 screenshot "$1"

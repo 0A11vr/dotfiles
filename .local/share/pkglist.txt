@@ -1,3 +1,4 @@
+abduco
 alacritty
 alsa-utils
 amd-ucode
@@ -13,8 +14,10 @@ dash
 dunst
 emacs
 exfat-utils
+feh
 firefox-extension-privacybadger
 firefox-ublock-origin
+flameshot
 galculator
 gimp
 gnu-netcat
@@ -22,7 +25,6 @@ gpicview
 hsetroot
 htop
 hyphen-en
-imagemagick
 inetutils
 l3afpad
 lxappearance-obconf
@@ -33,6 +35,7 @@ man-db
 mate-polkit
 mpd
 mpv
+mupdf
 ncmpcpp
 net-tools
 nmap
@@ -54,6 +57,7 @@ speedtest-cli
 syslinux
 texlive-latexextra
 traceroute
+unclutter
 usbutils
 viewnior
 virt-manager

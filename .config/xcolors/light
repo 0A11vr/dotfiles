@@ -1,0 +1,38 @@
+*.foreground: #363636
+*.background: #f0f0f0
+
+!*.foreground: #f0f0f0
+!*.background: #363636
+
+! Black
+ st.color0:       #131313
+ st.color8:       #3A3A3A
+
+ ! Red
+ st.color1:       #660000
+ st.color9:       #7D2626
+
+ ! Green
+ st.color2:       #304E30
+ st.color10:      #497849
+
+ ! Yellow
+ st.color3:       #E3C119
+ st.color11:      #EBD259
+
+ ! Blue
+ st.color4:       #003E9C
+ st.color12:      #0066FF
+
+ ! Magenta
+ st.color5:       #3E0093
+ st.color13:      #5B17BA
+
+ ! Cyan
+ st.color6:       #009393
+ st.color14:      #17BABA
+
+ ! White
+ st.color7:       #d3d3d3
+ st.color15:      #f5f5f5
+

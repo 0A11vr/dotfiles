@@ -1,7 +1,7 @@
 apg
 bash-complete-alias
 brave-bin
-cava
+bspwm-git
 colorpicker
 discord_arch_electron
 downgrade
@@ -11,7 +11,7 @@ ksuperkey
 librewolf-bin
 marktext
 masterpdfeditor-free
-mpdris2
+mpd-mpris
 obmenu-generator
 onlyoffice-bin
 oracle-sqldeveloper
@@ -19,13 +19,11 @@ playerctl-git
 polybar
 qomui-git
 rofi-git
-shellcheck-bin
 spotify-adblock-git
 teams
 thunderbird-beta-bin
 tor-browser
 ttf-wps-fonts
 typora
-xtitle-git
 yay
 zoom

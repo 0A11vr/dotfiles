@@ -19,3 +19,6 @@ HISTFILESIZE=10000
 [ -f  /usr/share/bash-complete-alias/complete_alias ] \
         && . /usr/share/bash-complete-alias/complete_alias; \
         complete -F _complete_alias config
+
+eval $(pandoc --bash-completion)
+

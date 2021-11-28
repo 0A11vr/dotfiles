@@ -3,6 +3,7 @@ alias yt-chapters='yt-dlp -x --audio-format mp3 --audio-quality 0 --split-chapte
 alias yt-playlist='yt-dlp -x --audio-format mp3 --audio-quality 0 --yes-playlist -o "%(title)s - %(playlist_index)s. %(playlist)s.%(ext)s"'
 alias music='ncmpcpp'
 #alias ls='ls -xh --color=auto'
+alias ls='ls -xh '
 alias open='xdg-open'
 alias reload-xresources='xrdb ~/.Xresources'
 alias refresh-font-cache='fc-cache -r'
