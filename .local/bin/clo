@@ -1,0 +1,19 @@
+#!/bin/sh
+#
+# stolen from github.com/fehawen/bin/blob/master/scripts/clo
+# clo - clone github repo, so lazy
+#
+
+[ $# -lt 2 ] && {
+    printf '%s\n' "Usage: clo [username] [repository] ssh (optional)"
+    exit 1
+}
+
+if [ "$3" = "ssh" ]; then
+    src="git@github.com:$1/$2.git"
+else
+    src="https://github.com/$1/$2.git"
+fi
+
+git clone "$src"
+
