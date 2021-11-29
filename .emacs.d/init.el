@@ -1,127 +1,83 @@
-;; .emacs.d/init.el
+; Font var
+(defvar efs/default-font-size 133)
+(defvar efs/default-variable-font-size 133)
 
+(setq inhibit-startup-message t)
+(scroll-bar-mode -1)        ; no visible scrollbar
+;(tool-bar-mode -1)          ; no toolbar
+(tooltip-mode -1)           ; no tooltips
+(set-fringe-mode 10)        ; 
 
-;; ===================================
+;(menu-bar-mode -1)          ; Disable the menu bar
+(setq x-super-keysym 'meta) ;; change meta from alt to super
+(global-set-key (kbd "<escape>") 'keyboard-escape-quit) ;; escape exit prompts
+(global-visual-line-mode t) ;; line wrap
+(column-number-mode)
+(global-display-line-numbers-mode t)
 
-;; MELPA Package Support
+;(load-theme 'modus-operandi)
 
-;; ===================================
+(set-face-attribute 'default nil :font "Triplicate A Code" :height efs/default-font-size)
 
-;; Enables basic packaging support
-
+;; Initialize package sources
 (require 'package)
 
+(setq package-archives '(("melpa" . "https://melpa.org/packages/")
+                         ("org" . "https://orgmode.org/elpa/")
+                         ("elpa" . "https://elpa.gnu.org/packages/")
+                         ("gnu" . "https://elpa.gnu.org/packages/")))
 
-;; Adds the Melpa archive to the list of available repositories
-
-(add-to-list 'package-archives
-
-             '("melpa" . "http://melpa.org/packages/") t)
-
-
-;; Initializes the package infrastructure
 
 (package-initialize)
-
-
-;; If there are no archived package contents, refresh them
-
-(when (not package-archive-contents)
-
+(unless package-archive-contents
   (package-refresh-contents))
 
+;; Initialize use-package on non-Linux platforms
+(unless (package-installed-p 'use-package)
+  (package-install 'use-package))
 
-;; Installs packages
+(require 'use-package)
+(setq use-package-always-ensure t)
 
-;;
+(use-package swiper :ensure t)
+(use-package counsel :ensure t)
+(use-package ivy
+  :diminish
+  :bind (("C-s" . swiper)
+         :map ivy-minibuffer-map
+         ("TAB" . ivy-alt-done)
+         ("C-l" . ivy-alt-done)
+         ("C-j" . ivy-next-line)
+         ("C-k" . ivy-previous-line)
+         :map ivy-switch-buffer-map
+         ("C-k" . ivy-previous-line)
+         ("C-l" . ivy-done)
+         ("C-d" . ivy-switch-buffer-kill)
+         :map ivy-reverse-i-search-map
+         ("C-k" . ivy-previous-line)
+         ("C-d" . ivy-reverse-i-search-kill))
+  :config
+  (ivy-mode 1))
 
-;; myPackages contains a list of package names
+(use-package pdf-tools
+  :ensure t
+  :mode ("\\.pdf\\'" . pdf-view-mode)
+  :config
+  (pdf-tools-install))
+(use-package brutal-theme)
+  :config
+  (load-theme 'brutal-light t))
 
-(defvar myPackages
-
-  '(better-defaults                 ;; Set up some better Emacs defaults
-    
-   ;; material-theme                  ;; Theme
-    py-autopep8                     ;; Run autopep8 on save
-    )
-
-  )
-
-
-;; Scans the list in myPackages
-
-;; If the package listed is not already installed, install it
-
-(mapc #'(lambda (package)
-
-          (unless (package-installed-p package)
-
-            (package-install package)))
-
-      myPackages)
-
-
-;; ===================================
-
-;; Basic Customization
-
-;; ===================================
-
-
-(setq inhibit-startup-message t)    ;; Hide the startup message
-
-;;(load-theme 'material t)            ;; Load material theme
-
-(global-linum-mode t)               ;; Enable line numbers globally
-
-(setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
-;;(setq backup-directory-alist '(("." . "~/emacs-backups")))
-(setq auto-save-file-name-transforms `((".*" "~/.emacs.d/auto-saves/" t)))
-
-(global-visual-line-mode t)
-
-;; ====================================
-
-;; Development Setup
-
-;; ====================================
-
-;; Enable elpy
-
-(elpy-enable)
-
-
-;; Enable Flycheck
-
-(when (require 'flycheck nil t)
-
-  (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
-
-  (add-hook 'elpy-mode-hook 'flycheck-mode))
-
-;; Enable autopep8
-
-(require 'py-autopep8)
-
-(add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
-
-
-(setq x-super-keysym 'meta) ;; change meta from alt to super
-
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/") 
-
-;; User-Defined init.el ends here
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   '("4d2ff8f6a7797796a939d799631f29d711c6ffc5f2e7d39dd7dd4ac636d7f88f" default))
- '(package-selected-packages '(flycheck material-theme better-defaults elpy)))
+ '(package-selected-packages
+   '(brutalist-theme brutal-theme pdf-tools counsel swiper use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Triplicate T4c" :foundry "Matt" :slant normal :weight normal :height 120 :width normal)))))
+ )
