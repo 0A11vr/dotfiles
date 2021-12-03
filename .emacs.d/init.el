@@ -12,16 +12,13 @@
  (load-theme 'monotropic t)
 
 ;(use-package almost-mono-themes
- ; :config
-  ;; (load-theme 'almost-mono-black t)
-  ;; (load-theme 'almost-mono-gray t)
-  ;; (load-theme 'almost-mono-cream t)
-;  (load-theme 'almost-mono-white t))
+; :config
+; (load-theme 'almost-mono-white t))
+;(set-face-attribute 'region nil :background "#E0E0E0")
 ;(use-package xresources-theme
 ;  :config
 ;  (load-theme 'xresources t))
 
-;(set-face-attribute 'region nil :background "#E0E0E0")
 
 ;(use-package brutal-theme
 ;  :config
@@ -32,8 +29,8 @@
 (scroll-bar-mode -1)        ; no visible scrollbar
 ;(tool-bar-mode -1)          ; no toolbar
 (tooltip-mode -1)           ; no tooltips
-;(set-fringe-mode 10)        ; 
-(set-fringe-mode 0)
+(set-fringe-mode 10)        ; 
+;(set-fringe-mode 0)
 ;(menu-bar-mode -1)         ; no menu
 
 (setq x-super-keysym 'meta) ;; change meta from alt to super
@@ -154,6 +151,65 @@
   (evil-set-initial-state 'messages-buffer-mode 'normal)
   (evil-set-initial-state 'dashboard-mode 'normal))
 
+(use-package evil-collection
+  :after evil
+  :config
+  (evil-collection-init))
+
+(use-package magit
+  :ensure t
+  :bind (("C-c g" . magit-status)))
+
+;; no dialog boxes
+(setq use-dialog-box nil)
+
+
+;; from munen/emacs.d
+;; Garbage Collection
+(setq gc-cons-threshold 20000000)
+;; Do no create backup files
+(setq make-backup-files nil)
+;; Warn when opening big files
+(setq large-file-warning-threshold 200000000)
+;; Auto-save in /tmp
+(setq backup-directory-alist
+      `((".*" . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms
+      `((".*" ,temporary-file-directory t)))
+;; Always follow symlinks
+(setq vc-follow-symlinks t)
+;; Sentences have one space after a period
+(setq sentence-end-double-space nil)
+;; Confirm before closing Emacs
+(setq confirm-kill-emacs 'y-or-n-p)
+;; dired-mode
+;; Ability to use `a` to visit a new directory insteat of RET, in same buffer
+(put 'dired-find-alternate-file 'disabled nil)
+;; Human readable units
+(setq-default dired-listing-switches "-alh")
+;; On `C`, recursively copy by default
+(setq dired-recursive-copies 'always)
+;; Ask `y/n` instead of `yes/no`
+(fset 'yes-or-no-p 'y-or-n-p)
+;; Auto revert files on change
+(global-auto-revert-mode t)
+;; Shortcut for changing font-size
+(defun zoom-in ()
+  (interactive)
+  (let ((x (+ (face-attribute 'default :height)
+              10)))
+    (set-face-attribute 'default nil :height x)))
+
+(defun zoom-out ()
+  (interactive)
+  (let ((x (- (face-attribute 'default :height)
+              10)))
+    (set-face-attribute 'default nil :height x)))
+
+(define-key global-map (kbd "C-1") 'zoom-in)
+(define-key global-map (kbd "C-0") 'zoom-out)
+
+
 ; I installed
 (use-package pdf-tools
   :ensure t
@@ -162,18 +218,18 @@
   (define-key pdf-view-mode-map (kbd "C-s") 'isearch-forward)
   (pdf-tools-install))
 
-(use-package magit
-  :ensure t
-  :bind (("C-c g" . magit-status)))
-
 (use-package diminish)
-
-(use-package paren-face
-  :hook (emacs-lisp-mode . paren-face-mode))
 
 (use-package undo-fu
   :config
   (global-set-key (kbd "C-r") 'undo-fu-only-redo))
+
+(use-package circe)
+
+(use-package paren-face
+  :hook (emacs-lisp-mode . paren-face-mode))
+
+;(load-file "~/.emacs.d/private.el")
 
 ;;(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 
@@ -195,4 +251,4 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(evil brutal-theme xresources-theme almost-mono-themes monotropic-theme monotropic helpful ivy-rich diminish which-key rainbow-delimiters use-package pdf-tools magit counsel)))
+   '(circe evil-collection evil brutal-theme xresources-theme almost-mono-themes monotropic-theme monotropic helpful ivy-rich diminish which-key rainbow-delimiters use-package pdf-tools magit counsel)))
