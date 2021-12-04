@@ -29,13 +29,13 @@
 (scroll-bar-mode -1)        ; no visible scrollbar
 ;(tool-bar-mode -1)          ; no toolbar
 (tooltip-mode -1)           ; no tooltips
-(set-fringe-mode 10)        ; 
-;(set-fringe-mode 0)
+;(set-fringe-mode 10)        ; 
+(set-fringe-mode 0)
 ;(menu-bar-mode -1)         ; no menu
 
 (setq x-super-keysym 'meta) ;; change meta from alt to super
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit) ;; escape exit prompts
-(global-visual-line-mode t) ;; line wrap
+;(global-visual-line-mode t) ;; line wrap
 (column-number-mode)
 (global-display-line-numbers-mode t)
 
@@ -87,7 +87,8 @@
 (dolist (mode '(org-mode-hook
                 term-mode-hook
                 shell-mode-hook
-                eshell-mode-hook))
+                eshell-mode-hook
+		circe-mode-hook))
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
 ;(use-package rainbow-delimiters
@@ -208,6 +209,44 @@
 
 (define-key global-map (kbd "C-1") 'zoom-in)
 (define-key global-map (kbd "C-0") 'zoom-out)
+;; Display the current 
+; disable system load
+(setq display-time-default-load-average nil)
+(setq display-time-24hr-format 1)
+(display-time-mode t)
+
+;; windmove with shift + arrowkeys
+
+(when (fboundp 'windmove-default-keybindings)
+  (windmove-default-keybindings))
+
+;; Enables `undo` (and `redo`) changes in the window configuration with the key commands `C-c left` and `C-c right`.
+(when (fboundp 'winner-mode)
+  (winner-mode 1))
+
+;; PDF export
+(defun md-compile ()
+  "Compiles the currently loaded markdown file using pandoc into a PDF"
+  (interactive)
+  (save-buffer)
+  (shell-command (concat "panrun " (buffer-file-name))))
+
+(defun update-other-buffer ()
+  (interactive)
+  (other-window 1)
+  (revert-buffer nil t)
+  (other-window -1))
+
+(defun md-compile-and-update-other-buffer ()
+  "Has as a premise that it's run from a markdown-mode buffer and the
+   other buffer already has the PDF open"
+  (interactive)
+  (md-compile)
+  (update-other-buffer))
+
+
+(eval-after-load 'markdown-mode
+  '(define-key markdown-mode-map (kbd "C-c r") 'md-compile-and-update-other-buffer))
 
 
 ; I installed
@@ -218,18 +257,40 @@
   (define-key pdf-view-mode-map (kbd "C-s") 'isearch-forward)
   (pdf-tools-install))
 
+(use-package markdown-mode
+  :ensure t
+  :mode ("README\\.md\\'" . gfm-mode)
+  :init (setq markdown-command "multimarkdown"))
+
+
 (use-package diminish)
 
 (use-package undo-fu
   :config
   (global-set-key (kbd "C-r") 'undo-fu-only-redo))
 
-(use-package circe)
+(load-file "~/.emacs.d/private.el")
+(use-package circe
+  :config
+  (setq circe-network-options
+	`(("bitlbee"
+	  :nick "m"
+	  :nickserv-password ,bitlbee-password
+	  :nickserv-mask "\\(bitlbee\\|root\\)!\\(bitlbee\\|root\\)@"
+          :nickserv-identify-challenge "use the \x02identify\x02 command to identify yourself"
+          :nickserv-identify-command "PRIVMSG &bitlbee :identify {password}"
+          :nickserv-identify-confirmation "Password accepted, settings and accounts loaded"
+;	  :lagmon-disabled t
+	  :channels ("&bitlbee")
+	  :host "localhost"
+	  :service "6667")))
+
+  :after circe
+  :init (enable-circe-color-nicks))
 
 (use-package paren-face
   :hook (emacs-lisp-mode . paren-face-mode))
 
-;(load-file "~/.emacs.d/private.el")
 
 ;;(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 
@@ -251,4 +312,4 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(circe evil-collection evil brutal-theme xresources-theme almost-mono-themes monotropic-theme monotropic helpful ivy-rich diminish which-key rainbow-delimiters use-package pdf-tools magit counsel)))
+   '(markdown-mode circe-color-nicks circe evil-collection evil brutal-theme xresources-theme almost-mono-themes monotropic-theme monotropic helpful ivy-rich diminish which-key rainbow-delimiters use-package pdf-tools magit counsel)))
