@@ -1,69 +1,82 @@
 ; Majority of this taken from emacs from scratch
 ; Font var
-(defvar efs/default-font-size 133)
-(defvar efs/default-variable-font-size 133)
+(defvar m/default-font-size 133)
+(defvar m/default-variable-font-size 133)
 
 ; Deals with newline behavior: if -1 acts like I would expect. If on newline without intend is enter with c-j
 (electric-indent-mode -1)
 
-;; Theme
-;(load-theme 'modus-operandi)
-(use-package monotropic-theme)
- (load-theme 'monotropic t)
+;(setq blink-cursor-mode nil)
 
-;(use-package almost-mono-themes
-; :config
-; (load-theme 'almost-mono-white t))
-;(set-face-attribute 'region nil :background "#E0E0E0")
-;(use-package xresources-theme
-;  :config
-;  (load-theme 'xresources t))
-
-
-;(use-package brutal-theme
-;  :config
-;  (load-theme 'brutal-light t))
 
 
 (setq inhibit-startup-message t)
 (scroll-bar-mode -1)        ; no visible scrollbar
 ;(tool-bar-mode -1)          ; no toolbar
 (tooltip-mode -1)           ; no tooltips
-;(set-fringe-mode 10)        ; 
+;(set-fringe-mode 10)        ;
 (set-fringe-mode 0)
 ;(menu-bar-mode -1)         ; no menu
 
 (setq x-super-keysym 'meta) ;; change meta from alt to super
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit) ;; escape exit prompts
-;(global-visual-line-mode t) ;; line wrap
-(column-number-mode)
-(global-display-line-numbers-mode t)
+
+
 
 ;(load-theme 'modus-operandi)
 
-(set-face-attribute 'default nil :font "Triplicate A Code" :height efs/default-font-size)
+(set-face-attribute 'default nil :font "Monospace" :height m/default-font-size)
 
 ;; Initialize package sources
-(require 'package)
+(defvar bootstrap-version)
+(let ((bootstrap-file
+               (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
+            (bootstrap-version 5))
+    (unless (file-exists-p bootstrap-file)
+          (with-current-buffer
+                    (url-retrieve-synchronously
+                               "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
+                                        'silent 'inhibit-cookies)
+                          (goto-char (point-max))
+                                (eval-print-last-sexp)))
+      (load bootstrap-file nil 'nomessage))
 
-(setq package-archives '(("melpa" . "https://melpa.org/packages/")
-                         ("org" . "https://orgmode.org/elpa/")
-                         ("elpa" . "https://elpa.gnu.org/packages/")
-                         ("gnu" . "https://elpa.gnu.org/packages/")))
+(straight-use-package 'use-package)
+(setq straight-use-package-by-default t)
+;(setq package-enable-at-startup nil)
 
 
-(package-initialize)
-(unless package-archive-contents
-  (package-refresh-contents))
+(use-package diminish)
+;; Theme
+(use-package monotropic-theme)
+ (load-theme 'monotropic t)
 
-;; Initialize use-package on non-Linux platforms
-(unless (package-installed-p 'use-package)
-  (package-install 'use-package))
+;(use-package doom-modeline
+;  :init (doom-modeline-mode 1)
+;  :custom ((doom-modeline-height 5)))
 
-(require 'use-package)
-(setq use-package-always-ensure t) ;; turns ensure on for all package blocks
+(column-number-mode)
+(global-display-line-numbers-mode t)
+;(global-visual-line-mode t) ;; line wrap
+
+;; Disable line numbers for some modes
+(dolist (mode '(org-mode-hook
+                term-mode-hook
+                shell-mode-hook
+                eshell-mode-hook
+		circe-mode-hook))
+  (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
 (use-package swiper)
+
+
+(use-package counsel
+  :bind (("M-x" . counsel-M-x)
+         ("C-x b" . counsel-ibuffer)
+         ("C-x C-f" . counsel-find-file)
+	 ("C-M-a" . 'counsel-switch-buffer)
+         :map minibuffer-local-map
+         ("C-r" . 'counsel-minibuffer-history)))
 
 (use-package ivy
   :diminish
@@ -83,18 +96,12 @@
   :config
   (ivy-mode 1))
 
-;; Disable line numbers for some modes
-(dolist (mode '(org-mode-hook
-                term-mode-hook
-                shell-mode-hook
-                eshell-mode-hook
-		circe-mode-hook))
-  (add-hook mode (lambda () (display-line-numbers-mode 0))))
+
 
 ;(use-package rainbow-delimiters
 ;  :hook (prog-mode . rainbow-delimiters-mode))
 
-; displays what the enter keycombo can do
+; displays what the entered keycombo can do
 (use-package which-key
   :init (which-key-mode)
   :diminish which-key-mode
@@ -105,13 +112,6 @@
   :init
   (ivy-rich-mode 1))
 
-(use-package counsel
-  :bind (("M-x" . counsel-M-x)
-         ("C-x b" . counsel-ibuffer)
-         ("C-x C-f" . counsel-find-file)
-	 ("C-M-a" . 'counsel-switch-buffer)
-         :map minibuffer-local-map
-         ("C-r" . 'counsel-minibuffer-history)))
 
 (use-package helpful
   :custom
@@ -129,7 +129,7 @@
   (setq evil-want-keybinding nil)
   (setq evil-want-C-u-scroll t)
   (setq evil-want-C-i-jump nil)
-  ;; trying to fix redo behavoiro with this
+  ;; trying to fix redo behavior with this
   (setq evil-undo-system 'undo-fu)
   ;; keeps all modes with box cursor
   (setq evil-motion-state-cursor 'box)
@@ -137,9 +137,7 @@
   (setq evil-normal-state-cursor 'box)
   (setq evil-insert-state-cursor 'box)
   (setq evil-replace-state-cursor 'box)
-  (setq evil-emacs-state-cursor 'box)
-
-  ;;;(setq evil-undo-system 'undo-tree)
+  (setq evil-emacs-state-cursor 'box);
   :config
   (evil-mode 1)
   (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
@@ -150,16 +148,21 @@
   ;;(evil-global-set-key 'motion "k" 'evil-previous-visual-line)
 
   (evil-set-initial-state 'messages-buffer-mode 'normal)
-  (evil-set-initial-state 'dashboard-mode 'normal))
+  (evil-set-initial-state 'dashboard-mode 'normal)
+  (evil-set-initial-state 'pdf-view-mode 'emacs)
+  (add-hook 'pdf-view-mode-hook
+  (lambda ()
+    (set (make-local-variable 'evil-emacs-state-cursor) (list nil)))))
 
-(use-package evil-collection
-  :after evil
-  :config
-  (evil-collection-init))
+;(use-package evil-collection
+;  :after evil
+;  :config
+;  (evil-collection-init))
+
 
 (use-package magit
-  :ensure t
-  :bind (("C-c g" . magit-status)))
+  :custom
+  (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
 
 ;; no dialog boxes
 (setq use-dialog-box nil)
@@ -250,26 +253,39 @@
 
 
 ; I installed
-(use-package pdf-tools
-  :ensure t
-  :mode ("\\.pdf\\'" . pdf-view-mode)
+(use-package password-store
+;  :pin melpa
   :config
-  (define-key pdf-view-mode-map (kbd "C-s") 'isearch-forward)
-  (pdf-tools-install))
+  (setf epa-pinentry-mode 'loopback))
+(use-package ivy-pass)
+;(use-package epa-file)
+(use-package pinentry)
+
+(use-package pdf-tools
+  :mode ("\\.pdf\\'" . pdf-view-mode)
+  :hook
+  (pdf-view-mode . (lambda () (display-line-numbers-mode -1)))
+  :config
+  (pdf-tools-install)
+  ;(setq-default pdf-view-display-size 'fit-page)
+  ;; automatically annotate highlights
+  (setq pdf-annot-activate-created-annotations t)
+  ;; don't use swiper
+  (define-key pdf-view-mode-map (kbd "C-s") 'isearch-forward))
 
 (use-package markdown-mode
-  :ensure t
   :mode ("README\\.md\\'" . gfm-mode)
   :init (setq markdown-command "multimarkdown"))
 
 
-(use-package diminish)
+
 
 (use-package undo-fu
   :config
   (global-set-key (kbd "C-r") 'undo-fu-only-redo))
 
 (load-file "~/.emacs.d/private.el")
+;; taken from https://github.com/stsquad/my-emacs-stuff/blob/master/my-circe.el
 (use-package circe
   :config
   (setq circe-network-options
@@ -288,28 +304,7 @@
   :after circe
   :init (enable-circe-color-nicks))
 
+(show-paren-mode t) ;; enable show paren mode
+(setq show-paren-style 'expression) ;; highlight whole expression
 (use-package paren-face
   :hook (emacs-lisp-mode . paren-face-mode))
-
-
-;;(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(magit use-package pdf-tools counsel))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(markdown-mode circe-color-nicks circe evil-collection evil brutal-theme xresources-theme almost-mono-themes monotropic-theme monotropic helpful ivy-rich diminish which-key rainbow-delimiters use-package pdf-tools magit counsel)))
