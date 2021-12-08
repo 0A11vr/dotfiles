@@ -219,7 +219,6 @@
 (display-time-mode t)
 
 ;; windmove with shift + arrowkeys
-
 (when (fboundp 'windmove-default-keybindings)
   (windmove-default-keybindings))
 
@@ -252,6 +251,14 @@
   '(define-key markdown-mode-map (kbd "C-c r") 'md-compile-and-update-other-buffer))
 
 
+;;; taken from SirPscl/emacs.d
+;; when scrolling, keep the cursor in the same position
+;; (setq scroll-preserve-screen-position 'keep)
+;; Delete trailing whitespaces when saving
+;(add-hook 'write-file-hooks 'delete-trailing-whitespace)
+
+
+
 ; I installed
 (use-package password-store
 ;  :pin melpa
@@ -270,6 +277,8 @@
   ;(setq-default pdf-view-display-size 'fit-page)
   ;; automatically annotate highlights
   (setq pdf-annot-activate-created-annotations t)
+  ;; stolen from SirPscl/emacs.d - zoom by 5%
+  (setq pdf-view-resize-factor 1.05)
   ;; don't use swiper
   (define-key pdf-view-mode-map (kbd "C-s") 'isearch-forward))
 
@@ -308,3 +317,4 @@
 (setq show-paren-style 'expression) ;; highlight whole expression
 (use-package paren-face
   :hook (emacs-lisp-mode . paren-face-mode))
+
