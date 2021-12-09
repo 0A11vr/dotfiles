@@ -318,3 +318,28 @@
 (use-package paren-face
   :hook (emacs-lisp-mode . paren-face-mode))
 
+
+;;; taken from https://emacs.stackexchange.com/a/5885 ;;;
+;;; Sets work-tree for bare repo dotfiles management with Magit
+;; prepare the arguments
+(setq dotfiles-git-dir (concat "--git-dir=" (expand-file-name "~/.cfg")))
+(setq dotfiles-work-tree (concat "--work-tree=" (expand-file-name "~")))
+
+;; function to start magit on dotfiles
+(defun dotfiles-magit-status ()
+  (interactive)
+  (add-to-list 'magit-git-global-arguments dotfiles-git-dir)
+  (add-to-list 'magit-git-global-arguments dotfiles-work-tree)
+  (call-interactively 'magit-status))
+(global-set-key (kbd "C-c C-d") 'dotfiles-magit-status)
+
+;; wrapper to remove additional args before starting magit
+(defun magit-status-with-removed-dotfiles-args ()
+  (interactive)
+  (setq magit-git-global-arguments (remove dotfiles-git-dir magit-git-global-arguments))
+  (setq magit-git-global-arguments (remove dotfiles-work-tree magit-git-global-arguments))
+  (call-interactively 'magit-status))
+;; redirect global magit hotkey to our wrapper
+(global-set-key (kbd "C-x g") 'magit-status-with-removed-dotfiles-args)
+;; everything works without this?
+;;(define-key magit-file-mode-map (kbd "C-x g") 'magit-status-with-removed-dotfiles-args)
