@@ -48,8 +48,13 @@
 
 (use-package diminish)
 ;; Theme
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes") 
+  
 (use-package monotropic-theme)
- (load-theme 'monotropic t)
+(load-theme 'monotropic t)
+
+
+
 
 ;(use-package doom-modeline
 ;  :init (doom-modeline-mode 1)
@@ -343,3 +348,37 @@
 (global-set-key (kbd "C-x g") 'magit-status-with-removed-dotfiles-args)
 ;; everything works without this?
 ;;(define-key magit-file-mode-map (kbd "C-x g") 'magit-status-with-removed-dotfiles-args)
+
+;; mu4e stuff taken from https://github.com/daviwil/emacs-from-scratch/blob/629aec3dbdffe99e2c361ffd10bd6727555a3bd3/show-notes/Emacs-Mail-01.org
+
+(use-package mu4e
+  ;; :ensure nil
+  ;; :load-path "/usr/share/emacs/site-lisp/mu4e/"
+  ;; :load-path "/usr/local/share/emacs/site-lisp/mu4e"
+  ;; :defer 20 ; Wait until 20 seconds after startup
+  :straight
+  (:local-repo
+   "/usr/share/emacs/site-lisp/mu4e"
+   :pre-build())
+  :config
+  (setq mu4e-root-maildir "~/Mail"
+	mu4e-sent-folder "/isu/Sent Items"
+	mu4e-drafts-folder "/isu/Drafts"
+	mu4e-get-mail-command "mbsync -a"
+	mu4e-update-interval 1800 ;; every 60 min
+	mu4e-change-filenames-when-moving t
+	mu4e-use-fancy-chars t
+	;; For wrapping nicer in other clients
+	mu4e-compose-format-flowed t
+	;; display attached images
+	mu4e-view-show-images t
+	mu4e-attachment-dir "~/Downloads"
+	
+	mu4e-maildir-shortcuts
+	'((:maildir "/isu/Inbox"    :key ?i)
+      ;; (:maildir "/[Gmail]/Sent Mail" :key ?s)
+      ;; (:maildir "/[Gmail]/Trash"     :key ?t)
+      ;; (:maildir "/[Gmail]/Drafts"    :key ?d)
+      ;; (:maildir "/[Gmail]/All Mail"  :key ?a)
+	 ))) 
+	
