@@ -159,10 +159,10 @@
   (lambda ()
     (set (make-local-variable 'evil-emacs-state-cursor) (list nil)))))
 
-;(use-package evil-collection
-;  :after evil
-;  :config
-;  (evil-collection-init))
+(use-package evil-collection
+  :after evil
+  :config
+  (evil-collection-init))
 
 
 (use-package magit
@@ -265,13 +265,22 @@
 
 
 ; I installed
-(use-package password-store
-;  :pin melpa
+;; (use-package password-store
+;; ;  :pin melpa
+;;   :config
+;;   (setf epa-pinentry-mode 'loopback))
+;; (use-package ivy-pass)
+;; ;(use-package epa-file)
+;; (use-package pinentry)
+
+;;; ^^ worked
+(use-package pinentry
   :config
-  (setf epa-pinentry-mode 'loopback))
+  (setq epa-pinentry-mode 'loopback)
+  (pinentry-start))
+(use-package password-store)
 (use-package ivy-pass)
-;(use-package epa-file)
-(use-package pinentry)
+
 
 (use-package pdf-tools
   :mode ("\\.pdf\\'" . pdf-view-mode)
@@ -352,19 +361,15 @@
 ;; mu4e stuff taken from https://github.com/daviwil/emacs-from-scratch/blob/629aec3dbdffe99e2c361ffd10bd6727555a3bd3/show-notes/Emacs-Mail-01.org
 
 (use-package mu4e
-  ;; :ensure nil
-  ;; :load-path "/usr/share/emacs/site-lisp/mu4e/"
-  ;; :load-path "/usr/local/share/emacs/site-lisp/mu4e"
-  ;; :defer 20 ; Wait until 20 seconds after startup
   :straight
   (:local-repo
    "/usr/share/emacs/site-lisp/mu4e"
    :pre-build())
   :config
-  (setq mu4e-root-maildir "~/Mail"
-	mu4e-sent-folder "/isu/Sent Items"
-	mu4e-drafts-folder "/isu/Drafts"
+  (setq mu4e-root-maildir "~/.mail"
 	mu4e-get-mail-command "mbsync -a"
+	message-send-mail-function 'smtpmail-send-it
+	mail-user-agent 'mu4e-user-agent
 	mu4e-update-interval 1800 ;; every 60 min
 	mu4e-change-filenames-when-moving t
 	mu4e-use-fancy-chars t
@@ -372,13 +377,69 @@
 	mu4e-compose-format-flowed t
 	;; display attached images
 	mu4e-view-show-images t
-	mu4e-attachment-dir "~/Downloads"
+	mu4e-attachment-dir "~/Downloads")
+  (setq mu4e-contexts
+	(list
+	 (make-mu4e-context
+	  :name "ACCOUNT1"
+	  :match-func
+	  (lambda (msg)
+	    (when msg
+	      (string-prefix-p "/isu" (mu4e-message-field msg :maildir))))
+	  :vars '((user-mail-address . "username@emailaddress.com")
+		  (user-full-name    . "full name")
+		  (smtpmail-smtp-server . "smtp.office365.com")
+		  (smtpmail-smtp-service . 587)
+		  (smtpmail-stream-type . STARTTLS)
+		  (mu4e-sent-folder . "/ACCOUNT1/Sent Items")
+		  (mu4e-trash-folder . "/ACCOUNT1/Deleted Items")
+		  (mu4e-drafts-folder . "/ACCOUNT1/Drafts")
+		  (mu4e-refile-folder . "/ACCOUNT1/Archive")))
+	 (make-mu4e-context
+	  :name "ACCOUNT2"
+	  :match-func
+	  (lambda (msg)
+	    (when msg
+	      (string-prefix-p "/ACCOUNT2" (mu4e-message-field msg :maildir))))
+	  :vars '((user-mail-address . "username@emailaddress.com")
+		  (user-full-name . "full name")
+		  (smtpmail-smtp-server . "smtp.server.com")
+		  (smtpmail-smtp-service . 465)
+		  (smtpmail-stream-type . ssl)
+		  (mu4e-sent-folder . "/ACCOUNT2/Sent")
+		  (mu4e-trash-folder . "/ACCOUNT2/Trash")
+		  (mu4e-drafts-folder . "/ACCOUNT2/Drafts")
+		  (mu4e-refile-folder . "/ACCOUNT2/Archive"))))))
+
+
 	
-	mu4e-maildir-shortcuts
-	'((:maildir "/isu/Inbox"    :key ?i)
-      ;; (:maildir "/[Gmail]/Sent Mail" :key ?s)
-      ;; (:maildir "/[Gmail]/Trash"     :key ?t)
-      ;; (:maildir "/[Gmail]/Drafts"    :key ?d)
-      ;; (:maildir "/[Gmail]/All Mail"  :key ?a)
-	 ))) 
-	
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(evil-collection-mode-list
+   '(2048-game ag alchemist anaconda-mode apropos arc-mode auto-package-update beginend bm bookmark
+	       (buff-menu "buff-menu")
+	       calc calendar cider cmake-mode comint company compile consult
+	       (custom cus-edit)
+	       cus-theme dashboard daemons deadgrep debbugs debug devdocs dictionary diff-hl diff-mode dired dired-sidebar disk-usage distel doc-view docker ebib edbi edebug ediff eglot explain-pause-mode elfeed elisp-mode elisp-refs elisp-slime-nav embark emms epa ert eshell eval-sexp-fu evil-mc eww fanyi finder flycheck flymake forge free-keys geiser ggtags git-timemachine gnus go-mode grep guix hackernews helm help helpful hg-histedit hungry-delete ibuffer image image-dired image+ imenu imenu-list
+	       (indent "indent")
+	       indium info ivy js2-mode leetcode lispy log-edit log-view lsp-ui-imenu lua-mode kotlin-mode macrostep man magit magit-todos markdown-mode monky mpdel mu4e mu4e-conversation neotree newsticker notmuch nov
+	       (occur replace)
+	       omnisharp org org-present osx-dictionary outline p4
+	       (package-menu package)
+	       pass popup proced
+	       (process-menu simple)
+	       prodigy profiler python quickrun racer racket-describe realgud reftex restclient rg ripgrep rjsx-mode robe rtags ruby-mode scheme scroll-lock selectrum sh-script simple slime sly speedbar tab-bar tablist tabulated-list tar-mode telega
+	       (term term ansi-term multi-term)
+	       tetris thread tide timer-list transmission trashed tuareg typescript-mode vc-annotate vc-dir vc-git vdiff vertico view vlf vterm w3m wdired wgrep which-key woman xref xwidget yaml-mode youtube-dl zmusic
+	       (ztree ztree-diff)))
+ '(smtpmail-smtp-server "smtp.office365.com")
+ '(smtpmail-smtp-service 587))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
