@@ -12,8 +12,8 @@ fi
 [ -f ~/.Xmodmap ] && xmodmap ~/.Xmodmap
 [ -f ~/.Xresources ] && xrdb -merge -I$HOME ~/.Xresources
 
-xrandr --output DisplayPort-0 --mode 1920x1080 --rate 144.00
-xrandr --output HDMI-A-0 --mode 1920x1080 --rate 60.00
+#xrandr --output DisplayPort-0 --mode 1920x1080 --rate 144.00
+#xrandr --output HDMI-A-0 --mode 1920x1080 --rate 60.00
 
 xsettingsd &
 xsetroot -cursor_name left_ptr &
@@ -30,6 +30,9 @@ case $session in
         exec openbox-session;;
     bspwm)
         hsetroot -cover Pictures/oMuGsZb.jpg &
+        picom &
+        dunst &
+        flashfocus &
         sxhkd &
         exec bspwm;;
 # No known session, try to run it as command

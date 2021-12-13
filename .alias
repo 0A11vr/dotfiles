@@ -14,7 +14,7 @@ alias remove-orphans='sudo pacman -Rns $(pacman -Qqtd)'
 #alias rel='xrdb merge $HOME/.Xresources && kill -USR1 $(pidof st)'
 alias ranger='export TERM=st-mono && ranger'
 alias startx='startx ~/.xinitrc'
-
+alias al1='sudo make al1:m:dfu'
 # cd
 alias 351='cd ~/Documents/ISU/fall2021/351/'
 alias 357='cd ~/Documents/ISU/fall2021/357/'
