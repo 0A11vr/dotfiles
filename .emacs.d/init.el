@@ -11,7 +11,7 @@
 
 
 (setq inhibit-startup-message t)
-(scroll-bar-mode -1)        ; no visible scrollbar
+(scroll-bar-mode -1)        ; no visible scrollbaar
 ;(tool-bar-mode -1)          ; no toolbar
 (tooltip-mode -1)           ; no tooltips
 ;(set-fringe-mode 10)        ;
@@ -23,9 +23,10 @@
 
 
 
-;(load-theme 'modus-operandi)
 
 (set-face-attribute 'default nil :font "Monospace" :height m/default-font-size)
+;; variable width font
+(set-face-attribute 'variable-pitch nil :font "Public Sans" :height m/default-font-size :weight 'light)
 
 ;; Initialize package sources
 (defvar bootstrap-version)
@@ -53,16 +54,28 @@
 (use-package monotropic-theme)
 (load-theme 'monotropic t)
 
+;; (straight-use-package '(nano-theme :type git :host github
+;;                                    :repo "rougier/nano-theme"))
+;; (load-theme 'nano-light t)
+
+(straight-use-package '(nano-modeline :type git :host github
+				      :repo "rougier/nano-modeline"))
+(nano-modeline-mode 1)
+
+;; (use-package doom-modeline
+;;   :init (doom-modeline-mode 1)
+;;   :custom ((doom-modeline-height 5)))
 
 
-
-;(use-package doom-modeline
-;  :init (doom-modeline-mode 1)
-;  :custom ((doom-modeline-height 5)))
-
+(global-visual-line-mode t) ;; line wrap
 (column-number-mode)
 (global-display-line-numbers-mode t)
-;(global-visual-line-mode t) ;; line wrap
+;; (use-package visual-fill-column
+  ;; :hook ('visual-line-mode . #'visual-fill-column-mode))
+
+(use-package adaptive-wrap
+  :hook ('visual-line-mode . #'adaptive-wrap-prefix-mode))
+
 
 ;; Disable line numbers for some modes
 (dolist (mode '(org-mode-hook
@@ -103,8 +116,8 @@
 
 
 
-;(use-package rainbow-delimiters
-;  :hook (prog-mode . rainbow-delimiters-mode))
+;; (use-package rainbow-delimiters
+;;   :hook (prog-mode . rainbow-delimiters-mode))
 
 ; displays what the entered keycombo can do
 (use-package which-key
@@ -137,12 +150,13 @@
   ;; trying to fix redo behavior with this
   (setq evil-undo-system 'undo-fu)
   ;; keeps all modes with box cursor
-  (setq evil-motion-state-cursor 'box)
+  (setq evil-operator-state-cursor 'box)
+  (setq evil-emacs-state-cursor 'box)
+  (setq evil-replace-state-cursor 'box)
   (setq evil-visual-state-cursor 'box)
   (setq evil-normal-state-cursor 'box)
   (setq evil-insert-state-cursor 'box)
-  (setq evil-replace-state-cursor 'box)
-  (setq evil-emacs-state-cursor 'box);
+  (setq evil-motion-state-cursor 'box)
   :config
   (evil-mode 1)
   (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
@@ -278,9 +292,10 @@
   :config
   (setq epa-pinentry-mode 'loopback)
   (pinentry-start))
+
+
 (use-package password-store)
 (use-package ivy-pass)
-
 
 (use-package pdf-tools
   :mode ("\\.pdf\\'" . pdf-view-mode)
@@ -298,7 +313,9 @@
 
 (use-package markdown-mode
   :mode ("README\\.md\\'" . gfm-mode)
-  :init (setq markdown-command "multimarkdown"))
+  :init (setq markdown-command "multimarkdown")
+  :config
+  (setq markdown-command "pandoc"))
 
 
 
@@ -329,7 +346,7 @@
 
 (show-paren-mode t) ;; enable show paren mode
 (setq show-paren-style 'expression) ;; highlight whole expression
-(use-package paren-face
+ (use-package paren-face
   :hook (emacs-lisp-mode . paren-face-mode))
 
 
@@ -377,39 +394,41 @@
 	mu4e-compose-format-flowed t
 	;; display attached images
 	mu4e-view-show-images t
-	mu4e-attachment-dir "~/Downloads")
+	mu4e-attachment-dir "~/Downloads"
+	;; Use Ivy for mu4e completions (maildir folders, etc)
+	mu4e-completing-read-function #'ivy-completing-read)
   (setq mu4e-contexts
 	(list
 	 (make-mu4e-context
-	  :name "ACCOUNT1"
+	  :name "isu"
 	  :match-func
 	  (lambda (msg)
 	    (when msg
 	      (string-prefix-p "/isu" (mu4e-message-field msg :maildir))))
-	  :vars '((user-mail-address . "username@emailaddress.com")
-		  (user-full-name    . "full name")
+	  :vars '((user-mail-address . "mreed15@ilstu.edu")
+		  (user-full-name    . "mreed15")
 		  (smtpmail-smtp-server . "smtp.office365.com")
 		  (smtpmail-smtp-service . 587)
-		  (smtpmail-stream-type . STARTTLS)
-		  (mu4e-sent-folder . "/ACCOUNT1/Sent Items")
-		  (mu4e-trash-folder . "/ACCOUNT1/Deleted Items")
-		  (mu4e-drafts-folder . "/ACCOUNT1/Drafts")
-		  (mu4e-refile-folder . "/ACCOUNT1/Archive")))
+		  (smtpmail-stream-type . starttls)
+		  (mu4e-sent-folder . "/isu/Sent Items")
+		  (mu4e-trash-folder . "/isu/Deleted Items")
+		  (mu4e-drafts-folder . "/isu/Drafts")
+		  (mu4e-refile-folder . "/isu/Archive")))
 	 (make-mu4e-context
-	  :name "ACCOUNT2"
+	  :name "x"
 	  :match-func
 	  (lambda (msg)
 	    (when msg
-	      (string-prefix-p "/ACCOUNT2" (mu4e-message-field msg :maildir))))
-	  :vars '((user-mail-address . "username@emailaddress.com")
-		  (user-full-name . "full name")
-		  (smtpmail-smtp-server . "smtp.server.com")
+	      (string-prefix-p "/x" (mu4e-message-field msg :maildir))))
+	  :vars '((user-mail-address . "m@xreed.net")
+		  (user-full-name . "x")
+		  (smtpmail-smtp-server . "smtp.purelymail.com")
 		  (smtpmail-smtp-service . 465)
 		  (smtpmail-stream-type . ssl)
-		  (mu4e-sent-folder . "/ACCOUNT2/Sent")
-		  (mu4e-trash-folder . "/ACCOUNT2/Trash")
-		  (mu4e-drafts-folder . "/ACCOUNT2/Drafts")
-		  (mu4e-refile-folder . "/ACCOUNT2/Archive"))))))
+		  (mu4e-sent-folder . "/x/Sent")
+		  (mu4e-trash-folder . "/x/Trash")
+		  (mu4e-drafts-folder . "/x/Drafts")
+		  (mu4e-refile-folder . "/x/Archive"))))))
 
 
 	
