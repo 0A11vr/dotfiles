@@ -11,8 +11,8 @@ bc
 bison
 calc
 dash
+discord
 dunst
-emacs
 exfat-utils
 feh
 firefox-extension-privacybadger
@@ -26,6 +26,7 @@ hsetroot
 htop
 hyphen-en
 inetutils
+isync
 l3afpad
 lxappearance-obconf
 magic-wormhole
@@ -50,14 +51,13 @@ pkgconf
 pulsemixer
 python-selenium
 qemu-guest-agent
-qmk
 ranger
 reflector
+riscv64-elf-gcc
 speedtest-cli
 syslinux
 texlive-latexextra
 traceroute
-unclutter
 usbutils
 viewnior
 virt-manager

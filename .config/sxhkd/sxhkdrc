@@ -8,14 +8,18 @@ mod1 + {Return, shift + Return}
     rofi -show window}
 
 # launch programs
-mod3 + { b, d, f, g, s, t, z}
-    { brave, discord, firefox, gimp, \
+mod3 + { b, d, e, f, g, s, t, z}
+    { brave, discord, emacs, firefox, gimp, \
     LD_PRELOAD=/usr/lib/spotify-adblock.so spotify %U, \
     thunar, zoom }
 
 # screenshot
-mod1 + {p, ctrl + p, shift + p}
-    {flameshot gui, screenshot area, screenshot wind}
+# mod1 + {p, ctrl + p, shift + p}
+#     {flameshot gui, screenshot area, screenshot wind}
+
+{Print, mod1 + Print, shift + Print}
+	{flameshot gui, screenshot area, screenshot wind}
+
 
 # make sxhkd reload its configuration files:
 mod1 + Escape
@@ -25,6 +29,9 @@ mod1 + Escape
 # media
 ctrl + shift {Return, comma, period, m}
     {medcon togp, medcon prev, medcon next, medcon togm}
+
+XF86Audio{Prev,Play,Next,Mute}
+	medcon{ prev, togp, next, togm}
 
 
 #
@@ -174,4 +181,6 @@ mod1 + {Left,Down,Up,Right}
 #    bspc node -f "$dir"
 
 
-
+# switch keyboard layout
+mod1 + Delete
+    us_dvorak
