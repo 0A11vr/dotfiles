@@ -14,11 +14,11 @@ mod3 + { b, d, e, f, g, s, t, z}
     thunar, zoom }
 
 # screenshot
-# mod1 + {p, ctrl + p, shift + p}
-#     {flameshot gui, screenshot area, screenshot wind}
+mod1 + {p, ctrl + p, shift + p}
+     {flameshot gui, screenshot area, screenshot wind}
 
-{Print, mod1 + Print, shift + Print}
-	{flameshot gui, screenshot area, screenshot wind}
+# {Print, mod1 + Print, shift + Print}
+#	{flameshot gui, screenshot area, screenshot wind}
 
 
 # make sxhkd reload its configuration files:
