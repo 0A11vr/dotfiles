@@ -18,7 +18,7 @@ mod1 + {p, ctrl + p, shift + p}
      {flameshot gui, screenshot area, screenshot wind}
 
 # {Print, mod1 + Print, shift + Print}
-#   {flameshot gui, screenshot area, screenshot wind}
+#	{flameshot gui, screenshot area, screenshot wind}
 
 
 # make sxhkd reload its configuration files:
@@ -31,12 +31,12 @@ ctrl + shift {Return, comma, period, m}
     {medcon togp, medcon prev, medcon next, medcon togm}
 
 XF86Audio{Prev,Play,Next,Mute}
-    medcon{ prev, togp, next, togm}
-
+	medcon{ prev, togp, next, togm}
 
 # switch keyboard layout
 mod1 + Delete
     us_dvorak
+
 
 #########################################################
 
