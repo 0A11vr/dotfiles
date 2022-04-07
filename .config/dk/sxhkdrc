@@ -8,10 +8,10 @@ mod1 + {Return, shift + Return}
     rofi -show window}
 
 # launch programs
-mod3 + { b, d, e, f, g, s, t, z}
-    { brave, discord, emacs, firefox, gimp, \
-    LD_PRELOAD=/usr/lib/spotify-adblock.so spotify %U, \
-    thunar, zoom }
+#mod3 + { b, d, e, f, g, s, t, z}
+#    { brave, discord, emacs, firefox, gimp, \
+#    LD_PRELOAD=/usr/lib/spotify-adblock.so spotify %U, \
+#    thunar, zoom }
 
 # screenshot
 mod1 + {p, ctrl + p, shift + p}
@@ -41,8 +41,9 @@ mod1 + Delete
 #########################################################
 
 # quit dk
-mod1 + shift + q
+mod1 + shift + Escape
 	dkcmd exit
+
 # reload dkrc
 mod1 + shift + r
 	dkcmd reload
@@ -93,8 +94,13 @@ mod1 + {_,shift + ,ctrl + }{comma,period,backslash}
 	dkcmd mon {view,send,follow} {prev,next,last}
 
 # change active workspace layout
-mod1 + {t,r,m,g,s,n,f,u}
-	dkcmd set layout {tile,rtile,mono,grid,spiral,dwindle,none,tstack}
+#mod1 + {t,r,m,g,s,n,f,u}
+#	dkcmd set layout {tile,rtile,mono,grid,spiral,dwindle,none,tstack}
+
+
+# change active workspace layout
+mod1 + {t,r,m,g,s,n,u}
+	dkcmd set layout {tile,rtile,mono,grid,spiral,dwindle,tstack}
 
 # change number of windows in master or first stack
 mod1 + {_,shift + }{i,d}

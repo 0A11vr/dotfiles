@@ -25,3 +25,19 @@ alias 378='cd ~/Documents/ISU/fall2021/378/'
 #alias start-openbox="startx ~/.xinitrc openbox"
 #alias start-bspwm="startx ~/.xinitrc bspwm"
 
+# https://superuser.com/questions/611538/is-there-a-way-to-display-a-countdown-or-stopwatch-timer-in-a-terminal
+function stopwatch(){
+    date1=`date +%s`;
+    while true; do
+        echo -ne "$(date -u --date @$((`date +%s` - $date1)) +%H:%M:%S)\r";
+        sleep 0.1
+    done
+}
+
+function countdown(){
+   date1=$((`date +%s` + $1)); 
+   while [ "$date1" -ge `date +%s` ]; do 
+     echo -ne "$(date -u --date @$(($date1 - `date +%s`)) +%H:%M:%S)\r";
+     sleep 0.1
+   done
+}

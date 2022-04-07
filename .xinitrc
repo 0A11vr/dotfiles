@@ -19,13 +19,13 @@ xrandr --output DisplayPort-0 --mode 1920x1080 --rate 144.00
 xsetroot -cursor_name left_ptr &
 numlockx &
 
-session=${1:-bspwm}
+session=${1:-dk}
 case $session in
     2bwm)
         #exec dbus-run-session -- 2bwm;;
         #hsetroot -solid "#303030" &
         hsetroot -solid "#636161" &
-        sxhkd -c ~/.config/sxhkd/2bhkdrc & 
+        sxhkd -c ~/.config/sxhkd/2bhkdrc &
         exec 2bwm;;
     openbox)
         exec openbox-session;;
@@ -43,7 +43,7 @@ case $session in
         dunst &
         noisetorch -i 2> /dev/null &
         flashfocus 2> /dev/null &
-        sxhkd -c ~/.config/dk/sxhkdrc &
+        # sxhkd -c ~/.config/dk/sxhkdrc & ##not needed?##
         exec dk;;
 # No known session, try to run it as command
     *   )
