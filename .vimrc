@@ -14,17 +14,24 @@ call plug#begin('~/.vim/plugged')
 Plug 'fehawen/sl.vim'
 Plug 'preservim/nerdtree'
 
+Plug 'godlygeek/tabular'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
+
 call plug#end()
 
 syntax on
 set magic
 colorscheme bruin
 set linebreak
+
 set tabstop=4
 set softtabstop=4
-" set expandtab
+set expandtab
 set shiftwidth=4
-set autoindent
+
+set number
+se mouse+=a
+set clipboard=unnamedplus
 
 " hide hidden chars
 " :set nolist
@@ -34,7 +41,7 @@ set autoindent
 " settings for hidden chars
 " what particular chars they are displayed with
 " stolen from https://gist.github.com/while0pass/511985
-:set lcs=tab:▒░,trail:▓,nbsp:░
+" :set lcs=tab:▒░,trail:▓,nbsp:░
 " \u2592\u2591 are used for tab, \u2593 for trailing spaces in line, and \u2591 for nbsp.
 " In Vim help they suggest using ">-" for tab and "-" for trail.
 
@@ -43,3 +50,20 @@ set autoindent
 au OptionSet number :if v:option_new | set showbreak= |
                    \ else | set showbreak=↪ |
                    \ endif
+
+set listchars=
+set listchars+=tab:│\ ,
+set listchars+=trail:•,
+set fillchars+=vert:\ ,
+set listchars+=nbsp:•,
+
+" markdown-preview.nvim
+let g:mkdp_auto_close=0
+let g:mkdp_refresh_slow=0
+
+"let g:mkdp_markdown_css=fnameescape($HOME).'/.config/Typora/themes/test.css'
+"let g:mkdp_markdown_css=fnameescape($HOME).'/.config/Typora/themes/base.user.css'
+
+"let g:mkdp_markdown_css=fnameescape($HOME).'/.config/Typora/themes/eloquent.css'
+"
+let g:mkdp_highlight_css = fnameescape($HOME).'/Templates/grayscale.css'
