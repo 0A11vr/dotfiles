@@ -29,7 +29,7 @@ set softtabstop=4
 set expandtab
 set shiftwidth=4
 
-set number
+set relativenumber number
 se mouse+=a
 set clipboard=unnamedplus
 
@@ -42,6 +42,7 @@ set clipboard=unnamedplus
 " what particular chars they are displayed with
 " stolen from https://gist.github.com/while0pass/511985
 " :set lcs=tab:▒░,trail:▓,nbsp:░
+:set lcs=tab:>-,trail:-,nbsp:░
 " \u2592\u2591 are used for tab, \u2593 for trailing spaces in line, and \u2591 for nbsp.
 " In Vim help they suggest using ">-" for tab and "-" for trail.
 
@@ -51,11 +52,6 @@ au OptionSet number :if v:option_new | set showbreak= |
                    \ else | set showbreak=↪ |
                    \ endif
 
-set listchars=
-set listchars+=tab:│\ ,
-set listchars+=trail:•,
-set fillchars+=vert:\ ,
-set listchars+=nbsp:•,
 
 " markdown-preview.nvim
 let g:mkdp_auto_close=0
