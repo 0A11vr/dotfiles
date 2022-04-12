@@ -15,15 +15,7 @@ alias remove-orphans='sudo pacman -Rns $(pacman -Qqtd)'
 alias ranger='export TERM=st-mono && ranger'
 alias startx='startx ~/.xinitrc'
 alias al1='sudo make al1:m:dfu'
-# cd
-alias 351='cd ~/Documents/ISU/fall2021/351/'
-alias 357='cd ~/Documents/ISU/fall2021/357/'
-alias 377='cd ~/Documents/ISU/fall2021/377/'
-alias 378='cd ~/Documents/ISU/fall2021/378/'
 
-#old
-#alias start-openbox="startx ~/.xinitrc openbox"
-#alias start-bspwm="startx ~/.xinitrc bspwm"
 
 # https://superuser.com/questions/611538/is-there-a-way-to-display-a-countdown-or-stopwatch-timer-in-a-terminal
 function stopwatch(){
