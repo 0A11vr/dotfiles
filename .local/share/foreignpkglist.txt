@@ -23,10 +23,11 @@ mu
 noisetorch-bin
 obmenu-generator
 onlyoffice-bin
+pinentry-rofi
+python-hurry-filesize
 python-selenium
 qmk-git
 qomui-git
-rofi-git
 spotify-adblock
 teams
 tor-browser

@@ -42,7 +42,6 @@ obconf
 obs-studio
 openconnect
 openshot
-pass
 patch
 peek
 pitivi
@@ -52,6 +51,7 @@ qemu-guest-agent
 ranger
 reflector
 riscv64-elf-gcc
+rofi-pass
 scrcpy
 speedtest-cli
 syslinux
