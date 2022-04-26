@@ -58,9 +58,9 @@
 ;;                                    :repo "rougier/nano-theme"))
 ;; (load-theme 'nano-light t)
 
-(straight-use-package '(nano-modeline :type git :host github
-				      :repo "rougier/nano-modeline"))
-(nano-modeline-mode 1)
+;; (straight-use-package '(nano-modeline :type git :host github
+;; 				      :repo "rougier/nano-modeline"))
+;; (nano-modeline-mode 1)
 
 ;; (use-package doom-modeline
 ;;   :init (doom-modeline-mode 1)
@@ -69,7 +69,10 @@
 
 (global-visual-line-mode t) ;; line wrap
 (column-number-mode)
-(global-display-line-numbers-mode t)
+;; (global-display-line-numbers-mode t)
+(setq menu-bar-display-line-numbers-mode 'relative)
+(setq linum-relative-current-symbol "")
+
 ;; (use-package visual-fill-column
   ;; :hook ('visual-line-mode . #'visual-fill-column-mode))
 
@@ -377,60 +380,20 @@
 
 ;; mu4e stuff taken from https://github.com/daviwil/emacs-from-scratch/blob/629aec3dbdffe99e2c361ffd10bd6727555a3bd3/show-notes/Emacs-Mail-01.org
 
-(use-package mu4e
-  :straight
-  (:local-repo
-   "/usr/share/emacs/site-lisp/mu4e"
-   :pre-build())
-  :config
-  (setq mu4e-root-maildir "~/.mail"
-	mu4e-get-mail-command "mbsync -a"
-	message-send-mail-function 'smtpmail-send-it
-	mail-user-agent 'mu4e-user-agent
-	mu4e-update-interval 1800 ;; every 60 min
-	mu4e-change-filenames-when-moving t
-	mu4e-use-fancy-chars t
-	;; For wrapping nicer in other clients
-	mu4e-compose-format-flowed t
-	;; display attached images
-	mu4e-view-show-images t
-	mu4e-attachment-dir "~/Downloads"
-	;; Use Ivy for mu4e completions (maildir folders, etc)
-	mu4e-completing-read-function #'ivy-completing-read)
-  (setq mu4e-contexts
-	(list
-	 (make-mu4e-context
-	  :name "isu"
-	  :match-func
-	  (lambda (msg)
-	    (when msg
-	      (string-prefix-p "/isu" (mu4e-message-field msg :maildir))))
-	  :vars '((user-mail-address . "mreed15@ilstu.edu")
-		  (user-full-name    . "mreed15")
-		  (smtpmail-smtp-server . "smtp.office365.com")
-		  (smtpmail-smtp-service . 587)
-		  (smtpmail-stream-type . starttls)
-		  (mu4e-sent-folder . "/isu/Sent Items")
-		  (mu4e-trash-folder . "/isu/Deleted Items")
-		  (mu4e-drafts-folder . "/isu/Drafts")
-		  (mu4e-refile-folder . "/isu/Archive")))
-	 (make-mu4e-context
-	  :name "x"
-	  :match-func
-	  (lambda (msg)
-	    (when msg
-	      (string-prefix-p "/x" (mu4e-message-field msg :maildir))))
-	  :vars '((user-mail-address . "m@xreed.net")
-		  (user-full-name . "x")
-		  (smtpmail-smtp-server . "smtp.purelymail.com")
-		  (smtpmail-smtp-service . 465)
-		  (smtpmail-stream-type . ssl)
-		  (mu4e-sent-folder . "/x/Sent")
-		  (mu4e-trash-folder . "/x/Trash")
-		  (mu4e-drafts-folder . "/x/Drafts")
-		  (mu4e-refile-folder . "/x/Archive"))))))
 
 
+(use-package tex-site
+  :straight auctex)
+
+;; Set pdf-tools as default http://alberto.am/2020-04-11-pdf-tools-as-default-pdf-viewer.html
+
+(setq TeX-view-program-selection '((output-pdf "PDF Tools"))
+      TeX-view-program-list '(("PDF Tools" TeX-pdf-tools-sync-view))
+      TeX-source-correlate-start-server t)
+
+(add-hook 'TeX-after-compilation-finished-functions
+          #'TeX-revert-document-buffer)
+(setq-default TeX-engine 'luatex)
 	
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

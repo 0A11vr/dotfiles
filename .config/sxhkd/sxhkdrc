@@ -33,6 +33,10 @@ ctrl + shift {Return, comma, period, m}
 XF86Audio{Prev,Play,Next,Mute}
 	medcon{ prev, togp, next, togm}
 
+# switch keyboard layout
+mod1 + Delete
+    us_dvorak
+
 
 #
 # bspwm hotkeys
@@ -181,6 +185,4 @@ mod1 + {Left,Down,Up,Right}
 #    bspc node -f "$dir"
 
 
-# switch keyboard layout
-mod1 + Delete
-    us_dvorak
+

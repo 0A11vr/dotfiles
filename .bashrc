@@ -10,6 +10,7 @@
 
 source ~/.shrc
 source ~/.alias
+source /usr/share/fzf/completion.bash && source /usr/share/fzf/key-bindings.bash
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=10000
 HISTFILESIZE=10000

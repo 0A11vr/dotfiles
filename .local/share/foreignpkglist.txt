@@ -2,7 +2,6 @@ bash-complete-alias
 bitlbee-discord-git
 brave-bin
 colorpicker
-discord-canary-electron-bin
 dk
 downgrade
 drawio-desktop-bin
@@ -12,11 +11,10 @@ flashfocus
 freetube-bin
 gifcurry
 gimp-plugin-resynthesizer
-gtypist
+gnome-text-editor
 katfetch
 ksuperkey
 librewolf-bin
-ly
 masterpdfeditor-free
 mpd-mpris
 mu
@@ -24,10 +22,7 @@ noisetorch-bin
 obmenu-generator
 onlyoffice-bin
 pinentry-rofi
-python-hurry-filesize
-python-selenium
 qmk-git
-qomui-git
 spotify-adblock
 teams
 tor-browser

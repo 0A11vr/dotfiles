@@ -23,10 +23,12 @@ if [ -f ${XDG_CONFIG_HOME}/user-dirs.dirs ]; then
 fi
 
 export _JAVA_AWT_WM_NONREPARENTING=1
-export PATH="$HOME/.local/bin:$PATH"
 export LESSHISTFILE=-
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export SSB_HOME="$XDG_DATA_HOME"/zoom
+
+#export MANPATH=/usr/local/texlive/2022/texmf-dist/doc/man
+export INFOPATH=/usr/local/texlive/2022/texmf-dist/doc/info
 
 
 #PS1='$ '

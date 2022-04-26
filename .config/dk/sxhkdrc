@@ -1,11 +1,11 @@
 # terminal emulator
-mod1 + {Return, shift + Return}
+super + {Return, shift + Return}
     {st, st -c 'st-float'}
 
 # rofi
-{mod1 + space, mod3 + r, ctrl + Tab}
+{super + space, mod3 + r, ctrl + Tab, alt + p}
     {rofi -show drun, rofi -show run -disable-history,\
-    rofi -show window}
+    rofi -show window, rofi-pass}
 
 # launch programs
 #mod3 + { b, d, e, f, g, s, t, z}
@@ -14,15 +14,15 @@ mod1 + {Return, shift + Return}
 #    thunar, zoom }
 
 # screenshot
-mod1 + {p, ctrl + p, shift + p}
+super + {p, ctrl + p, shift + p}
      {flameshot gui, screenshot area, screenshot wind}
 
-# {Print, mod1 + Print, shift + Print}
+# {Print, super + Print, shift + Print}
 #	{flameshot gui, screenshot area, screenshot wind}
 
 
 # make sxhkd reload its configuration files:
-mod1 + Escape
+super + Escape
     pkill -USR1 -x sxhkd; notify-send 'sxhkd' 'config reloaded'
 
 
@@ -34,82 +34,82 @@ XF86Audio{Prev,Play,Next,Mute}
 	medcon{ prev, togp, next, togm}
 
 # switch keyboard layout
-mod1 + Delete
+super + Delete
     us_dvorak
 
 
 #########################################################
 
 # quit dk
-mod1 + shift + Escape
+super + shift + Escape
 	dkcmd exit
 
 # reload dkrc
-mod1 + shift + r
+super + shift + r
 	dkcmd reload
 
 # restart dk
-mod1 + ctrl + shift + r
+super + ctrl + shift + r
 	dkcmd restart
 
 # focus next or previous window
-mod1 + {j,k}
+super + {j,k}
 	dkcmd win focus {next,prev}
 
 # close window, swap tiled window in/out of master, cycle tiled windows in place
-mod1 + {w,shift + m,Tab}
+super + {w,shift + m,Tab}
 	dkcmd win {kill,swap,cycle}
 
 # toggle fullscreen and fake fullscreen (enable manipulating fullscreen window)
-{_,mod1 + }F11
+{_,super + }F11
 	dkcmd win {full,fakefull}
 
 # toggle floating or sticky
-mod1 + shift + {f,s}
+super + shift + {f,s}
 	dkcmd win {float,stick}
 
 # move window, signed (+/-) for relative changes
-mod1 + shift + {h,j,k,l}
+super + shift + {h,j,k,l}
 	dkcmd win resize {x=-20,y=+20,y=-20,x=+20}
 
 # resize window, signed (+/-) for relative changes
-mod1 + ctrl + {h,j,k,l}
+super + ctrl + {h,j,k,l}
 	dkcmd win resize {w=-20,h=+20,h=-20,w=+20}
 
 # move the active window up/down the stack
-mod1 + {Up,Down}
+super + {Up,Down}
 	dkcmd win mvstack {up,down}
 
 # view, send, or follow to a workspace (by number)
-mod1 + {_,shift + ,ctrl + }{1-9,0}
+super + {_,shift + ,ctrl + }{1-9,0}
 	dkcmd ws {view,send,follow} {1-9,10}
 
 # view, send, or follow to the next, previous, last active,
 # next non-empty, or prev non-empty workspace
-mod1 + {_,shift + ,ctrl + }{bracketleft,bracketright,BackSpace,Left,Right}
+super + {_,shift + ,ctrl + }{bracketleft,bracketright,BackSpace,Left,Right}
 	dkcmd ws {view,send,follow} {prev,next,last,prevne,nextne}
 
 # view, send, or follow to the next, previous, or last active monitor
-mod1 + {_,shift + ,ctrl + }{comma,period,backslash}
+super + {_,shift + ,ctrl + }{comma,period,backslash}
 	dkcmd mon {view,send,follow} {prev,next,last}
 
 # change active workspace layout
-#mod1 + {t,r,m,g,s,n,f,u}
+#super + {t,r,m,g,s,n,f,u}
 #	dkcmd set layout {tile,rtile,mono,grid,spiral,dwindle,none,tstack}
 
 
 # change active workspace layout
-mod1 + {t,r,m,g,s,n,u}
+super + {t,r,m,g,s,n,u}
 	dkcmd set layout {tile,rtile,mono,grid,spiral,dwindle,tstack}
 
 # change number of windows in master or first stack
-mod1 + {_,shift + }{i,d}
+super + {_,shift + }{i,d}
 	dkcmd set {master,stack} {+1,-1}
 
 # change gap width
-mod1 + {equal,minus}
+super + {equal,minus}
 	dkcmd set gap width {+5,-5}
 
 # change border widths
-mod1 + ctrl + {_,shift + }{equal,minus}
+super + ctrl + {_,shift + }{equal,minus}
 	dkcmd set border {width,outer_width} {+1,-1}

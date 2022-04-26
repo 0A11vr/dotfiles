@@ -1,6 +1,6 @@
 configuration {
-	modi: "window,drun,run";
-	width: 650;
+	modi: "window,drun,run,ssh";
+	width: 700;
 	lines: 3;
 	columns: 1;
 	font: "Public Sans 18";
@@ -10,7 +10,7 @@ configuration {
 	yoffset: 20;
 	xoffset: 20;
 	show-icons: false;
-	terminal: "alacritty";
+	terminal: "st";
 /*	ssh-client: "ssh";*/
 /*	ssh-command: "{terminal} -e {ssh-client} {host} [-p {port}]";*/
 /*	run-command: "{cmd}";*/

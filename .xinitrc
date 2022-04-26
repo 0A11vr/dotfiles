@@ -9,10 +9,10 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-[ -f ~/.Xmodmap ] && xmodmap ~/.Xmodmap
+#[ -f ~/.Xmodmap ] && xmodmap ~/.Xmodmap
 [ -f ~/.Xresources ] && xrdb -merge -I$HOME ~/.Xresources
 
-xrandr --output DisplayPort-0 --mode 1920x1080 --rate 144.00
+#xrandr --output DisplayPort-0 --mode 1920x1080 --rate 144.00
 #xrandr --output HDMI-A-0 --mode 1920x1080 --rate 60.00
 
 #xsettingsd & is this still needed
