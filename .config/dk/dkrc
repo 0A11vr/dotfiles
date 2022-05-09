@@ -79,7 +79,7 @@ logfile="$HOME/.dkrc.log"
 	dkcmd set smart_gap=true smart_border=true
 
 	# define mouse mod and move/resize buttons
-	dkcmd set mouse mod=alt move=button1 resize=button3
+	dkcmd set mouse mod=super move=button1 resize=button3
 
 
 	# borders

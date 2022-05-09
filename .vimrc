@@ -39,13 +39,13 @@ set clipboard=unnamedplus
 " hide hidden chars
 " :set nolist
 " show hidden characters in Vim
-:set list
+ :set list
 
 " settings for hidden chars
 " what particular chars they are displayed with
 " stolen from https://gist.github.com/while0pass/511985
-" :set lcs=tab:▒░,trail:▓,nbsp:░
-:set lcs=tab:>-,trail:-,nbsp:░
+ :set lcs=tab:▒░,trail:▓,nbsp:░
+" :set lcs=tab:>-,trail:-,nbsp:░
 " \u2592\u2591 are used for tab, \u2593 for trailing spaces in line, and \u2591 for nbsp.
 " In Vim help they suggest using ">-" for tab and "-" for trail.
 

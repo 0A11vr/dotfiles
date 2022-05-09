@@ -1,16 +1,3 @@
-! 2bwm
-
-twobwm.border_width: 0
-twobwm.outer_border: 0
-twobwm.focus_color: #515151
-twobwm.unfocus_color: #f2f0ec
-twobwm.fixed_color: #6699cc
-twobwm.unkill_color: #66cccc
-twobwm.outer_border_color: #F2F0EC
-twobwm.fixed_unkill_color: #cc99cc
-twobwm.inverted_colors: false
-twobwm.enable_compton: true
-
 Xft.dpi: 96
 Xft.antialias: true
 Xft.hinting: true
@@ -21,7 +8,7 @@ Xft.hintstyle: hintslight
 
 *.font:monospace:pixelsize=16
 !*.fontalt0:Symbola:pixelsize=18
-
+*.fontalt0:Symbola:pixelsize=12:antialias=true:autohint=true
 
 
 *.background: #fafafa
@@ -53,3 +40,17 @@ Xft.hintstyle: hintslight
 ! white
 *.color7:  #bdbdbd
 *.color15: #e0e0e0
+
+
+! 2bwm
+
+twobwm.border_width: 0
+twobwm.outer_border: 0
+twobwm.focus_color: #515151
+twobwm.unfocus_color: #f2f0ec
+twobwm.fixed_color: #6699cc
+twobwm.unkill_color: #66cccc
+twobwm.outer_border_color: #F2F0EC
+twobwm.fixed_unkill_color: #cc99cc
+twobwm.inverted_colors: false
+twobwm.enable_compton: true

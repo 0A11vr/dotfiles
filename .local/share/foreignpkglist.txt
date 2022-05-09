@@ -2,6 +2,7 @@ bash-complete-alias
 bitlbee-discord-git
 brave-bin
 colorpicker
+devour
 dk
 downgrade
 drawio-desktop-bin
