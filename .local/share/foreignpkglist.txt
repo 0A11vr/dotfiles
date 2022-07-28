@@ -1,4 +1,5 @@
 bash-complete-alias
+betterdiscord-installer
 bitlbee-discord-git
 brave-bin
 colorpicker
@@ -19,16 +20,16 @@ librewolf-bin
 masterpdfeditor-free
 mpd-mpris
 mu
-noisetorch-bin
+noisetorch
 obmenu-generator
 onlyoffice-bin
 pinentry-rofi
-qmk-git
 spotify-adblock
 teams
 tor-browser
 ttf-apple-emoji
 ttf-wps-fonts
 typora-free
+xclicker
 yay
 zoom

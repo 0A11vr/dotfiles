@@ -1,5 +1,6 @@
 #!/bin/sh
 
+
 # example dkrc to show some basic command usage and error reporting
 
 # determine where to place the log file
@@ -48,19 +49,19 @@ logfile="$HOME/.dkrc.log"
 	#		try embracing the default behaviour and allow access to any workspace from any monitor
 	#       you might end up liking it :)
 	#
-	 mon1='DisplayPort-0'
-	 mon2='HDMI-A-0'
-	 dkcmd set static_ws=true \
-	 	ws=1  mon=$mon1 \
-	 	ws=2  mon=$mon1 \
-	 	ws=3  mon=$mon1 \
-	 	ws=4  mon=$mon2 \
-	 	ws=5  mon=$mon2 \
-	 	ws=6  mon=$mon2 \
-	 	ws=7  mon=$mon2 \
-	 	ws=8  mon=$mon2 \
-	 	ws=9  mon=$mon2 \
-	 	ws=10 mon=$mon2
+#	 mon1='DisplayPort-0'
+#	 mon2='HDMI-A-0'
+#	 dkcmd set static_ws=true \
+#	 	ws=1  mon=$mon1 \
+#	 	ws=2  mon=$mon1 \
+#	 	ws=3  mon=$mon1 \
+#	 	ws=4  mon=$mon2 \
+#	 	ws=5  mon=$mon2 \
+#	 	ws=6  mon=$mon2 \
+#	 	ws=7  mon=$mon2 \
+#	 	ws=8  mon=$mon2 \
+#	 	ws=9  mon=$mon2 \
+#	 	ws=10 mon=$mon2
 
 
 	# global settings
@@ -132,7 +133,7 @@ Galculator|Lxappearance|viewnior)$" float=true
 
 	# focus window and workspace on opening
 	#dkcmd rule class="^firefox$" ws=1 focus=true
-	dkcmd rule class="discord" ws=9 focus=false
+	#dkcmd rule class="discord" ws=9 focus=false
 
 	# update or remove an existing rule with the same match patterns
 	#dkcmd rule class="^firefox$" mon="HDMI-A-0"

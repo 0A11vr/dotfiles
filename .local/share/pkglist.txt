@@ -6,7 +6,6 @@ android-file-transfer
 asp
 autoconf
 automake
-aws-cli
 base
 bc
 bind
@@ -14,7 +13,7 @@ bison
 calc
 dash
 dialog
-discord-canary
+discord
 dunst
 exfat-utils
 firefox-ublock-origin
@@ -22,6 +21,7 @@ galculator
 gimp-plugin-gmic
 gnu-netcat
 handbrake
+higan
 hsetroot
 htop
 hyphen-en
@@ -50,6 +50,7 @@ pitivi
 pkgconf
 pulsemixer
 qemu-guest-agent
+qmk
 ranger
 reflector
 riscv64-elf-gcc

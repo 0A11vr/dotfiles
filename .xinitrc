@@ -13,7 +13,7 @@ fi
 [ -f ~/.Xresources ] && xrdb -merge -I$HOME ~/.Xresources
 
 xrandr --output DisplayPort-0 --mode 1920x1080 --rate 144.00
-xrandr --output HDMI-A-0 --mode 1920x1080 --rate 60.00
+#xrandr --output HDMI-A-0 --mode 1920x1080 --rate 60.00
 
 #xsettingsd & is this still needed
 xsetroot -cursor_name left_ptr &
