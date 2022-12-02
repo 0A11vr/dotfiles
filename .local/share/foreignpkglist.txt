@@ -4,6 +4,7 @@ bitlbee-discord-git
 brave-bin
 colorpicker
 devour
+discord-canary
 dk
 downgrade
 drawio-desktop-bin
@@ -13,10 +14,10 @@ flashfocus
 freetube-bin
 gifcurry
 gimp-plugin-resynthesizer
-gnome-text-editor
 katfetch
 ksuperkey
 librewolf-bin
+lyrebird
 masterpdfeditor-free
 mpd-mpris
 mu
@@ -30,6 +31,5 @@ tor-browser
 ttf-apple-emoji
 ttf-wps-fonts
 typora-free
-xclicker
+ungoogled-chromium-xdg-bin
 yay
-zoom

@@ -11,6 +11,7 @@ bc
 bind
 bison
 calc
+calibre
 dash
 dialog
 discord
@@ -19,6 +20,7 @@ exfat-utils
 firefox-ublock-origin
 galculator
 gimp-plugin-gmic
+gnome-text-editor
 gnu-netcat
 handbrake
 higan
