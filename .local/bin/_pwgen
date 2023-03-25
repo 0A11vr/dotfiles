@@ -1,0 +1,12 @@
+#!/bin/sh
+
+[ $# -lt 1 ] && {
+    printf '%s\n' "Usage: _pwgen optional ['<chars to remove'] [<password length]"
+    exit 1
+}
+
+if [ $# -eq 1 ]; then
+    pwgen -sync1 "$@" | xclip -sel c
+else
+    pwgen -sync1r "$@" | xclip -sel c
+fi

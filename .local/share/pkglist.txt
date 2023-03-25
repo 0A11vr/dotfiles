@@ -3,6 +3,7 @@ alacritty
 alsa-utils
 amd-ucode
 android-file-transfer
+asar
 asp
 autoconf
 automake
@@ -58,11 +59,11 @@ reflector
 riscv64-elf-gcc
 rofi-pass
 scrcpy
+steam
 syslinux
 tcpdump
 thunderbird
 traceroute
-usbutils
 viewnior
 virt-manager
 virt-viewer

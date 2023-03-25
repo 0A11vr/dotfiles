@@ -1,0 +1,8 @@
+#!/bin/sh
+
+[ $# -lt 1 ] && {
+    printf '%s\n' "Usage: _pwgenuserid [<username length]"
+    exit 1
+}
+
+pwgen -Ans1 "$@" | xclip -sel c
