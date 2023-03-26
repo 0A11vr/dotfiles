@@ -49,19 +49,28 @@ logfile="$HOME/.dkrc.log"
 	#		try embracing the default behaviour and allow access to any workspace from any monitor
 	#       you might end up liking it :)
 	#
-#	 mon1='DisplayPort-0'
-#	 mon2='HDMI-A-0'
-#	 dkcmd set static_ws=true \
-#	 	ws=1  mon=$mon1 \
-#	 	ws=2  mon=$mon1 \
-#	 	ws=3  mon=$mon1 \
-#	 	ws=4  mon=$mon2 \
-#	 	ws=5  mon=$mon2 \
-#	 	ws=6  mon=$mon2 \
-#	 	ws=7  mon=$mon2 \
-#	 	ws=8  mon=$mon2 \
-#	 	ws=9  mon=$mon2 \
-#	 	ws=10 mon=$mon2
+	mon1='DisplayPort-0'
+	#mon2='HDMI-A-0'
+    mon2='DisplayPort-0'
+    
+    # stolen from https://codeberg.org/ranjan/dotfiles/src/branch/main/cfg/dk/dkrc
+    monitor_count=$(xrandr --listactivemonitors | awk 'NR==1{print$2}')
+
+    if [ "$monitor_count" = 2 ]; then
+        mon2='HDMI-A-0'
+    fi
+
+	 dkcmd set static_ws=true \
+	 	ws=1  mon=$mon1 \
+	 	ws=2  mon=$mon1 \
+	 	ws=3  mon=$mon1 \
+	 	ws=4  mon=$mon1 \
+	 	ws=5  mon=$mon2 \
+	 	ws=6  mon=$mon2 \
+	 	ws=7  mon=$mon2 \
+	 	ws=8  mon=$mon2 \
+	 	ws=9  mon=$mon2 \
+	 	ws=10 mon=$mon2
 
 
 	# global settings
