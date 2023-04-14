@@ -300,19 +300,19 @@
 (use-package password-store)
 (use-package ivy-pass)
 
-(use-package pdf-tools
-  :mode ("\\.pdf\\'" . pdf-view-mode)
-  :hook
-  (pdf-view-mode . (lambda () (display-line-numbers-mode -1)))
-  :config
-  (pdf-tools-install)
-  ;(setq-default pdf-view-display-size 'fit-page)
-  ;; automatically annotate highlights
-  (setq pdf-annot-activate-created-annotations t)
-  ;; stolen from SirPscl/emacs.d - zoom by 5%
-  (setq pdf-view-resize-factor 1.05)
-  ;; don't use swiper
-  (define-key pdf-view-mode-map (kbd "C-s") 'isearch-forward))
+ (use-package pdf-tools
+   :mode ("\\.pdf\\'" . pdf-view-mode)
+   :hook
+   (pdf-view-mode . (lambda () (display-line-numbers-mode -1)))
+   :config
+   (pdf-tools-install)
+   ;(setq-default pdf-view-display-size 'fit-page)
+   ;; automatically annotate highlights
+   (setq pdf-annot-activate-created-annotations t)
+   ;; stolen from SirPscl/emacs.d - zoom by 5%
+   (setq pdf-view-resize-factor 1.05)
+   ;; don't use swiper
+   (define-key pdf-view-mode-map (kbd "C-s") 'isearch-forward))
 
 (use-package markdown-mode
   :mode ("README\\.md\\'" . gfm-mode)

@@ -17,6 +17,8 @@ Plug 'preservim/nerdtree'
 
 Plug 'godlygeek/tabular'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
+ Plug 'dhruvasagar/vim-table-mode'
+Plug 'preservim/vim-markdown'
 
 
 Plug 'lervag/vimtex'
@@ -95,7 +97,7 @@ let g:vimtex_view_method = 'zathura'
 
 " Most VimTeX mappings rely on localleader and this can be changed with the
 " following line. The default is usually fine and is the symbol "\".
-let maplocalleader = ","
+""let maplocalleader = ","
 
 let g:vimtex_quickfix_open_on_warning = 0
 
@@ -133,3 +135,7 @@ setlocal spell
 set spelllang=en
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
+" disable folding for vim-markdown
+let g:vim_markdown_folding_disabled = 1
+" enable toc window auto-fit
+let g:vim_markdown_toc_autofit = 1

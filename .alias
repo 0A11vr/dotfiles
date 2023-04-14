@@ -17,7 +17,6 @@ alias ranger='export TERM=st-mono && ranger'
 alias startx='startx ~/.xinitrc'
 alias al1='sudo make al1:m:dfu'
 
-
 # https://superuser.com/questions/611538/is-there-a-way-to-display-a-countdown-or-stopwatch-timer-in-a-terminal
 function stopwatch(){
     date1=`date +%s`;

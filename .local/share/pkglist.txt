@@ -19,10 +19,12 @@ discord
 dunst
 exfat-utils
 firefox-ublock-origin
+flameshot
 galculator
 gimp-plugin-gmic
 gnome-text-editor
 gnu-netcat
+gum
 handbrake
 higan
 hsetroot
