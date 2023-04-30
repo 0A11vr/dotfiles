@@ -9,6 +9,7 @@ devour
 dk
 downgrade
 drawio-desktop-bin
+evid
 firefox-extension-privacybadger
 flashfocus
 freetube-bin
@@ -27,6 +28,10 @@ noisetorch
 obmenu-generator
 perl-email-outlook-message
 pinentry-rofi
+powershell
+qeh-git
+ruby-asciidoctor-diagram
+slip
 spotify-adblock
 teams
 teams-for-linux

@@ -21,6 +21,7 @@ exfat-utils
 firefox-ublock-origin
 flameshot
 galculator
+gifski
 gimp-plugin-gmic
 gnome-text-editor
 gnu-netcat
@@ -31,11 +32,11 @@ hsetroot
 htop
 hyphen-en
 inetutils
+inotify-tools
 isync
 l3afpad
 lxappearance-obconf
 magic-wormhole
-maim
 make
 man-db
 mate-polkit
@@ -50,7 +51,6 @@ obconf
 obs-studio
 openconnect
 patch
-peek
 pitivi
 pkgconf
 pulsemixer

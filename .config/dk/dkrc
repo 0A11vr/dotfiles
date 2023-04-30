@@ -131,7 +131,7 @@ logfile="$HOME/.dkrc.log"
 
 	# open window(s) in a floating state
 	dkcmd rule class="^(pavucontrol|transmission-gtk|steam|lxappearance|mpv|st-float|\
-Galculator|Lxappearance|viewnior)$" float=true
+Galculator|Lxappearance|qeh)$" float=true
 
 	# open window(s) with a specific geometry and coordinates (floating only!)
 	#dkcmd rule class="^google-chrome$" title="^open files$" float=true w=1280 h=720

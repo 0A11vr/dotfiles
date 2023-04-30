@@ -26,7 +26,7 @@ call plug#end()
 
 syntax on
 set magic
-colorscheme bruin
+"" colorscheme bruin
 set linebreak
 
 set tabstop=4
@@ -139,3 +139,7 @@ inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 let g:vim_markdown_folding_disabled = 1
 " enable toc window auto-fit
 let g:vim_markdown_toc_autofit = 1
+
+" autosave for .adoc files
+"autocmd TextChanged,TextChangedI <buffer> silent write
+autocmd TextChanged,TextChangedI *.adoc silent write

@@ -37,6 +37,9 @@ XF86Audio{Prev,Play,Next,Mute}
 super + Delete
     us_dvorak
 
+# slip gif
+super + { a, s }
+    slip { --gif, --stop}
 
 #########################################################
 

@@ -11,7 +11,7 @@ screenshot() {
     area)
         maim -u -m 3 -s /tmp/tmp.png; \
         xclip -sel c -t image/png /tmp/tmp.png; \
-        viewnior /tmp/tmp.png
+        qeh /tmp/tmp.png
         #notify-send '📸 Select area to capture.'
         #maim -u -m 3 -s|xclip -selection clipboard -t image/png
         #notify-send -u normal '📸 Selection copied to clipboard'
