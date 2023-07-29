@@ -12,7 +12,6 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 call plug#begin('~/.vim/plugged')
 
 Plug 'fehawen/sl.vim'
-Plug 'fehawen/sc.vim'
 Plug 'preservim/nerdtree'
 
 Plug 'godlygeek/tabular'

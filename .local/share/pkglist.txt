@@ -11,8 +11,8 @@ base
 bc
 bind
 bison
+bluez-utils
 calc
-calibre
 dash
 dialog
 discord
@@ -66,7 +66,6 @@ syslinux
 tcpdump
 thunderbird
 traceroute
-viewnior
 virt-manager
 virt-viewer
 wireshark-qt

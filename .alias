@@ -13,7 +13,7 @@ alias clip='xclip -sel c'
 alias tlmgr='tlmgr --usermode'
 alias remove-orphans='sudo pacman -Rns $(pacman -Qqtd)'
 #alias rel='xrdb merge $HOME/.Xresources && kill -USR1 $(pidof st)'
-alias ranger='export TERM=st-mono && ranger'
+#alias ranger='export TERM=st-mono && ranger'
 alias startx='startx ~/.xinitrc'
 alias al1='sudo make al1:m:dfu'
 

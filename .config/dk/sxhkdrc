@@ -38,8 +38,11 @@ super + Delete
     us_dvorak
 
 # slip gif
-super + { a, s }
+super +  shift { a, s }
     slip { --gif, --stop}
+# record vid
+super + shift + z
+    recorder.sh
 
 #########################################################
 
@@ -111,7 +114,7 @@ super + {_,shift + }{i,d}
 
 # change gap width
 super + {equal,minus}
-	dkcmd set gap width {+5,-5}
+	dkcmd set gap width {+1,-1}
 
 # change border widths
 super + ctrl + {_,shift + }{equal,minus}

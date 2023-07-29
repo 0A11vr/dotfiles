@@ -1,6 +1,5 @@
 #!/bin/sh
 
-
 # example dkrc to show some basic command usage and error reporting
 
 # determine where to place the log file
@@ -26,7 +25,7 @@ logfile="$HOME/.dkrc.log"
 	# default workspace '_' values used when allocating new workspaces
 	# can be applied to all existing workspaces when passed 'apply' after ws=_
 	#dkcmd set ws=_ apply layout=tile master=1 stack=3 gap=0 msplit=0.5 ssplit=0.5
-	dkcmd set ws=_ apply layout=tile master=1 stack=3 gap=10 msplit=0.5 ssplit=0.5
+	dkcmd set ws=_ apply layout=tile master=1 stack=3 gap=0 msplit=0.5 ssplit=0.5
 	# use grid layout, padding, and gaps on workspace 10
 	#dkcmd set ws=10 layout=grid pad left=200 right=200 top=100 bottom=100 gap width=50
 
@@ -49,28 +48,27 @@ logfile="$HOME/.dkrc.log"
 	#		try embracing the default behaviour and allow access to any workspace from any monitor
 	#       you might end up liking it :)
 	#
-	mon1='DisplayPort-0'
-	#mon2='HDMI-A-0'
-    mon2='DisplayPort-0'
-    
-    # stolen from https://codeberg.org/ranjan/dotfiles/src/branch/main/cfg/dk/dkrc
-    monitor_count=$(xrandr --listactivemonitors | awk 'NR==1{print$2}')
+	#mon1='DisplayPort-0'
+    #mon2='DisplayPort-0'
 
-    if [ "$monitor_count" = 2 ]; then
-        mon2='HDMI-A-0'
-    fi
+    ## stolen from https://codeberg.org/ranjan/dotfiles/src/branch/main/cfg/dk/dkrc
+    #monitor_count=$(xrandr --listactivemonitors | awk 'NR==1{print$2}')
 
-	 dkcmd set static_ws=true \
-	 	ws=1  mon=$mon1 \
-	 	ws=2  mon=$mon1 \
-	 	ws=3  mon=$mon1 \
-	 	ws=4  mon=$mon1 \
-	 	ws=5  mon=$mon2 \
-	 	ws=6  mon=$mon2 \
-	 	ws=7  mon=$mon2 \
-	 	ws=8  mon=$mon2 \
-	 	ws=9  mon=$mon2 \
-	 	ws=10 mon=$mon2
+    #if [ "$monitor_count" = 2 ]; then
+    #    mon2='HDMI-A-0'
+    #fi
+
+	# dkcmd set static_ws=true \
+	# 	ws=1  mon=$mon1 \
+	# 	ws=2  mon=$mon1 \
+	# 	ws=3  mon=$mon1 \
+	# 	ws=4  mon=$mon1 \
+	# 	ws=5  mon=$mon2 \
+	# 	ws=6  mon=$mon2 \
+	# 	ws=7  mon=$mon2 \
+	# 	ws=8  mon=$mon2 \
+	# 	ws=9  mon=$mon2 \
+	# 	ws=10 mon=$mon2
 
 
 	# global settings

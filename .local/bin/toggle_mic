@@ -1,7 +1,9 @@
 #!/bin/sh
+mic=$(pulsemixer --list-sources | grep "NoiseTorch Microphone" | awk '{ print $3}' | awk -F'-' '{ print $2 }' | sed 's/.$//')
 mute() {
-    pulsemixer --toggle-mute --id source-5
-    if [ $(pulsemixer --get-mute --id source-5) -eq 1 ]; then
+#    pulsemixer --toggle-mute --id $mic
+    pulsemixer --toggle-mute --id $mic
+    if [ $(pulsemixer --get-mute --id $mic) -eq 1 ]; then
         dunstify -u normal 'Mic' 'muted'
     else
         dunstify -u normal 'Mic' 'un-muted'
