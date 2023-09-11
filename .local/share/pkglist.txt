@@ -5,6 +5,7 @@ amd-ucode
 android-file-transfer
 asar
 asp
+audacity
 autoconf
 automake
 base
@@ -14,13 +15,13 @@ bison
 bluez-utils
 calc
 dash
-dialog
 discord
 dunst
 exfat-utils
 firefox-ublock-origin
 flameshot
 galculator
+gamescope
 gifski
 gimp-plugin-gmic
 gnome-text-editor
@@ -34,6 +35,7 @@ hyphen-en
 inetutils
 inotify-tools
 isync
+ksnip
 l3afpad
 lxappearance-obconf
 magic-wormhole
@@ -41,9 +43,9 @@ make
 man-db
 mate-polkit
 mpd
-mpv
 ncmpcpp
 net-tools
+network-manager-applet
 nmap
 ntp
 numlockx
@@ -53,6 +55,7 @@ openconnect
 patch
 pitivi
 pkgconf
+pulseaudio-alsa
 pulsemixer
 qemu-guest-agent
 qmk

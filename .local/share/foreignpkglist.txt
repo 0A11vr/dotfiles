@@ -28,10 +28,12 @@ obmenu-generator
 otf-intel-one-mono
 perl-email-outlook-message
 pinentry-rofi
+protonvpn-cli
 qeh-git
 ruby-asciidoctor-diagram
 slip
 spotify-adblock
+spotube-bin
 teams-for-linux
 tor-browser
 ttf-apple-emoji
