@@ -2,12 +2,11 @@ abduco
 alacritty
 alsa-utils
 amd-ucode
-android-file-transfer
 asar
-asp
 audacity
 autoconf
 automake
+aws-cli
 base
 bc
 bind
@@ -15,7 +14,6 @@ bison
 bluez-utils
 calc
 dash
-discord
 dunst
 exfat-utils
 firefox-ublock-origin
@@ -28,14 +26,12 @@ gnome-text-editor
 gnu-netcat
 gum
 handbrake
-higan
 hsetroot
 htop
 hyphen-en
 inetutils
 inotify-tools
 isync
-ksnip
 l3afpad
 lxappearance-obconf
 magic-wormhole
@@ -43,6 +39,7 @@ make
 man-db
 mate-polkit
 mpd
+mpv
 ncmpcpp
 net-tools
 network-manager-applet
@@ -57,6 +54,7 @@ pitivi
 pkgconf
 pulseaudio-alsa
 pulsemixer
+python-boto3
 qemu-guest-agent
 qmk
 ranger
@@ -64,7 +62,6 @@ reflector
 riscv64-elf-gcc
 rofi-pass
 scrcpy
-steam
 syslinux
 tcpdump
 thunderbird
@@ -72,7 +69,6 @@ traceroute
 virt-manager
 virt-viewer
 wireshark-qt
-xdg-user-dirs
 xf86-video-amdgpu
 xorg-server
 xorg-xev

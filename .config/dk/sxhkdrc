@@ -17,9 +17,8 @@ super + {Return, shift + Return}
 super + {p, ctrl + p, shift + p}
      {flameshot gui, screenshot area, screenshot wind}
 
-# {Print, super + Print, shift + Print}
-#	{flameshot gui, screenshot area, screenshot wind}
-
+# super + {p, ctrl + p, shift + p}
+#      {ksnip -r, ksnip -r -p /tmp/img.png && qeh /tmp/img.png, screenshot wind}
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -43,6 +42,11 @@ super +  shift { a, s }
 # record vid
 super + shift + z
     recorder.sh
+
+# welcome copypasta
+alt + w
+    welcome
+
 
 #########################################################
 
@@ -119,3 +123,7 @@ super + {equal,minus}
 # change border widths
 super + ctrl + {_,shift + }{equal,minus}
 	dkcmd set border {width,outer_width} {+1,-1}
+
+# toggle scratchpad
+alt + u
+    dkcmd win scratch
