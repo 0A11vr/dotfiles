@@ -16,6 +16,8 @@ alias remove-orphans='sudo pacman -Rns $(pacman -Qqtd)'
 #alias ranger='export TERM=st-mono && ranger'
 alias startx='startx ~/.xinitrc'
 alias al1='sudo make al1:m:dfu'
+alias connect-phone='simple-mtpfs $HOME/phone/'
+alias disconnect-phone='fusermount -u $HOME/phone'
 
 # https://superuser.com/questions/611538/is-there-a-way-to-display-a-countdown-or-stopwatch-timer-in-a-terminal
 function stopwatch(){
