@@ -33,6 +33,7 @@ inetutils
 inotify-tools
 isync
 l3afpad
+lite-xl
 lxappearance-obconf
 magic-wormhole
 make
@@ -55,6 +56,7 @@ pkgconf
 pulseaudio-alsa
 pulsemixer
 python-boto3
+python-lsp-server
 qemu-guest-agent
 qmk
 ranger

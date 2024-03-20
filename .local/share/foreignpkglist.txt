@@ -19,7 +19,7 @@ katfetch
 ksnip-git
 ksuperkey
 librewolf-bin
-lite-xl
+lpm-git
 lyrebird
 masterpdfeditor-free
 microsoft-edge-stable-bin
@@ -43,6 +43,6 @@ ttf-apple-emoji
 ttf-mac-fonts
 typora-free
 upscayl-bin
-vencord-desktop-bin
+vencord-desktop-git
 wps-office
 yay
