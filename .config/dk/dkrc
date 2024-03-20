@@ -125,11 +125,12 @@ logfile="$HOME/.dkrc.log"
 	# open window(s) and use a callback function (user defined in config.h)
 	# we also ignore=true to stop the window from being resized on it's own from events
 	# eg. mpv --x11-name=albumart /path/to/media
-	dkcmd rule class="^mpv$" instance="^albumart$" float=true ignore=true callback=albumart bw=0
+	# ignore doesn't work dkcmd rule class="^mpv$" instance="^albumart$" float=true ignore=true callback=albumart bw=0
+	dkcmd rule class="^mpv$" instance="^albumart$" float=true  callback=albumart bw=0
 
 	# open window(s) in a floating state
 	dkcmd rule class="^(pavucontrol|transmission-gtk|steam|lxappearance|mpv|st-float|\
-Galculator|Lxappearance|qeh)$" float=true
+Galculator|Lxappearance|qeh|ksnip)$" float=true
 
 	# open window(s) with a specific geometry and coordinates (floating only!)
 	#dkcmd rule class="^google-chrome$" title="^open files$" float=true w=1280 h=720
