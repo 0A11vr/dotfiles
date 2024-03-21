@@ -5,18 +5,20 @@
 
 ; Deals with newline behavior: if -1 acts like I would expect. If on newline without intend is enter with c-j
 (electric-indent-mode -1)
-
+; you can select text and delete it by typing.
+(delete-selection-mode 1)
 ;(setq blink-cursor-mode nil)
 
 
 
 (setq inhibit-startup-message t)
 (scroll-bar-mode -1)        ; no visible scrollbaar
-;(tool-bar-mode -1)          ; no toolbar
+;(tool-bar-mode -1)         ; no toolbar
 (tooltip-mode -1)           ; no tooltips
-;(set-fringe-mode 10)        ;
-(set-fringe-mode 0)
-;(menu-bar-mode -1)         ; no menu
+;(set-fringe-mode 10)       ;
+(set-fringe-mode 0)         ; 
+;;(menu-bar-mode -1)        ; no file menu
+(tool-bar-mode -1)          ; no tool bar
 
 (setq x-super-keysym 'meta) ;; change meta from alt to super
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit) ;; escape exit prompts
@@ -49,10 +51,27 @@
 
 (use-package diminish)
 ;; Theme
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes") 
-  
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+
+(diminish 'eldoc-mode) ;; diminish ElDoc
+
+;;; Doom themes
+(use-package doom-themes
+  :ensure t
+  :config
+  ;; Global settings (defaults)
+  (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+        doom-themes-enable-italic t) ; if nil, italics is universally disabled
+  ;; (load-theme 'doom-earl-grey t)
+  (load-theme 'doom-flatwhite t)
+  )
+;; load flatwhite/earl-grey then monotropic
 (use-package monotropic-theme)
 (load-theme 'monotropic t)
+(use-package rainbow-delimiters
+  :hook (prog-mode . rainbow-delimiters-mode))
+
+
 
 ;; (straight-use-package '(nano-theme :type git :host github
 ;;                                    :repo "rougier/nano-theme"))
@@ -62,19 +81,24 @@
 ;; 				      :repo "rougier/nano-modeline"))
 ;; (nano-modeline-mode 1)
 
-;; (use-package doom-modeline
-;;   :init (doom-modeline-mode 1)
-;;   :custom ((doom-modeline-height 5)))
 
 
-(global-visual-line-mode t) ;; line wrap
+(global-visual-line-mode t)  ;; line wrap
+(diminish 'visual-line-mode) ;; diminish Wrap
 (column-number-mode)
-;; (global-display-line-numbers-mode t)
-(setq menu-bar-display-line-numbers-mode 'relative)
+(global-display-line-numbers-mode t)
+;; (setq menu-bar-display-line-numbers-mode 'relative)
 (setq linum-relative-current-symbol "")
+;;;
+;; set type of line numbering (global variable)
+(setq display-line-numbers-type 'relative) 
+
+;; activate line numbering in all buffers/modes
+(global-display-line-numbers-mode) 
+;;;
 
 ;; (use-package visual-fill-column
-  ;; :hook ('visual-line-mode . #'visual-fill-column-mode))
+;;   :hook ('visual-line-mode . #'visual-fill-column-mode))
 
 (use-package adaptive-wrap
   :hook ('visual-line-mode . #'adaptive-wrap-prefix-mode))
@@ -119,8 +143,6 @@
 
 
 
-;; (use-package rainbow-delimiters
-;;   :hook (prog-mode . rainbow-delimiters-mode))
 
 ; displays what the entered keycombo can do
 (use-package which-key
@@ -180,8 +202,44 @@
   :after evil
   :config
   (evil-collection-init))
+(diminish 'evil-collection-unimpaired-mode) ;; diminish unimpaired mode
 
 
+;;; General Keybinds
+
+;;; taken from https://gitlab.com/dwt1/configuring-emacs/-/blob/main/01-elpaca-evil-general/config.org?ref_type=heads#general-keybindings
+;;; and here https://systemcrafters.net/emacs-from-scratch/key-bindings-and-evil/
+
+(use-package general
+  :config
+  (general-evil-setup t)
+
+  ;; set up 'SPC' as the global leader key
+  (general-create-definer m/leader-keys
+    :states '(normal insert visual emacs)
+    :keymaps 'override
+    :prefix "SPC" ;; set leader
+    :global-prefix "C-SPC") ;; access leader in insert mode
+
+  (m/leader-keys
+    "b" '(:ignore t :wk "buffer")
+    "b b" '(switch-to-buffer :wk "Switch buffer") ;; this doesn't work
+    "b i" '(counsel-ibuffer :wk "Ibuffer")
+    "b k" '(kill-this-buffer :wk "Kill this buffer")
+    "b n" '(next-buffer :wk "Next buffer")
+    "b p" '(previous-buffer :wk "Previous buffer")
+    "b r" '(revert-buffer :wk "Reload buffer"))
+)
+
+(m/leader-keys
+  "TAB TAB" '(comment-line :wk "Comment Lines"))
+
+;;; taken from dt
+(use-package sudo-edit
+  :config
+    (m/leader-keys
+      "f u" '(sudo-edit-find-file :wk "Sudo find file")
+      "f U" '(sudo-edit :wk "Sudo edit file")))
 (use-package magit
   :custom
   (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
@@ -394,12 +452,19 @@
 (add-hook 'TeX-after-compilation-finished-functions
           #'TeX-revert-document-buffer)
 (setq-default TeX-engine 'luatex)
+
+;; taken from here: https://gist.github.com/habamax/290cda0e0cdc6118eb9a06121b9bc0d7
+;; auto enable treesitter for python
+(setq major-mode-remap-alist
+      '((python-mode . python-ts-mode)))
 	
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   '("02d422e5b99f54bd4516d4157060b874d14552fe613ea7047c4a5cfa1288cf4f" "a1b21c4d7f9f82c600967cf349f0481c3db89842e28abd91b55f4899e5b3a3ce" "a9eeab09d61fef94084a95f82557e147d9630fbbb82a837f971f83e66e21e5ad" "7373acc9d33a9dee67c9f0134cd647ecbde779479208c54fb1bfc3b84a8b9e81" default))
  '(evil-collection-mode-list
    '(2048-game ag alchemist anaconda-mode apropos arc-mode auto-package-update beginend bm bookmark
 	       (buff-menu "buff-menu")

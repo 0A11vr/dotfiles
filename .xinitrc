@@ -12,8 +12,8 @@ fi
 #[ -f ~/.Xmodmap ] && xmodmap ~/.Xmodmap
 [ -f ~/.Xresources ] && xrdb -merge -I$HOME ~/.Xresources
 
-xrandr --output DisplayPort-0 --mode 1920x1080 --rate 144.00
-#xrandr --output HDMI-A-0 --mode 1920x1080 --rate 60.00
+xrandr --output DisplayPort-0 --mode 2560x1440 --rate 170.00
+xrandr --output DisplayPort-1 --mode 1920x1080 --rate 144.00
 
 #xsettingsd & is this still needed
 xsetroot -cursor_name left_ptr &
@@ -46,7 +46,7 @@ case $session in
         hsetroot -cover Pictures/oMuGsZb.jpg &
         picom -b 2> /dev/null &
         dunst &
-        noisetorch -i 2> /dev/null &
+        # sleep 120s && noisetorch -i 2> /dev/null &
         flashfocus 2> /dev/null &
         # sxhkd -c ~/.config/dk/sxhkdrc & ##not needed?##
         exec dk;;
@@ -54,4 +54,3 @@ case $session in
     *   )
         exec $1;;
 esac
-
