@@ -44,8 +44,8 @@ super + shift + z
     recorder.sh
 
 # welcome copypasta
-alt + w
-    welcome
+#alt + w
+#    welcome
 
 
 #########################################################
