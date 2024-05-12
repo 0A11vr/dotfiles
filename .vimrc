@@ -25,7 +25,7 @@ call plug#end()
 
 syntax on
 set magic
-"" colorscheme bruin
+colorscheme bruin
 set linebreak
 
 set tabstop=4
@@ -130,9 +130,9 @@ augroup END
 
 
 " stolen from here: https://castel.dev/post/lecture-notes-1/
-setlocal spell
-set spelllang=en
-inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+" setlocal spell
+" set spelllang=en
+" inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
 " disable folding for vim-markdown
 let g:vim_markdown_folding_disabled = 1

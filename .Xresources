@@ -5,6 +5,7 @@ Xft.rgba: rgb
 !!Xft.autohint: true
 Xft.hintstyle: hintslight
 !Xft.lcdfilter: lcddefault
+Xcursor.theme:Vanilla-DMZ
 
 *.font:monospace:pixelsize=16
 !*.fontalt0:Symbola:pixelsize=18

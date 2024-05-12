@@ -25,10 +25,10 @@ masterpdfeditor-free
 microsoft-edge-stable-bin
 mpd-mpris
 msgviewer
-mu
 noisetorch
 obmenu-generator
 otf-intel-one-mono
+pass-genphrase
 picom-git
 pinentry-rofi
 proton-ge-custom-bin

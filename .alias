@@ -18,6 +18,9 @@ alias startx='startx ~/.xinitrc'
 alias al1='sudo make al1:m:dfu'
 alias connect-phone='simple-mtpfs $HOME/phone/'
 alias disconnect-phone='fusermount -u $HOME/phone'
+alias connect-earbuds='bluetoothctl connect AC:80:0A:4B:BF:91'
+alias disconnect-earbuds='bluetoothctl disconnect AC:80:0A:4B:BF:91'
+
 
 # https://superuser.com/questions/611538/is-there-a-way-to-display-a-countdown-or-stopwatch-timer-in-a-terminal
 function stopwatch(){

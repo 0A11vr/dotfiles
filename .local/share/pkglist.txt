@@ -15,6 +15,7 @@ bluez-utils
 calc
 dash
 dunst
+emacs
 exfat-utils
 firefox-ublock-origin
 flameshot
@@ -34,11 +35,12 @@ inotify-tools
 isync
 l3afpad
 lite-xl
-lxappearance-obconf
+lxappearance-gtk3
 magic-wormhole
 make
 man-db
 mate-polkit
+mate-utils
 mpd
 mpv
 ncmpcpp
@@ -55,6 +57,7 @@ pitivi
 pkgconf
 pulseaudio-alsa
 pulsemixer
+pyright
 python-boto3
 python-lsp-server
 qemu-guest-agent
@@ -71,6 +74,8 @@ traceroute
 virt-manager
 virt-viewer
 wireshark-qt
+xcursor-themes
+xcursor-vanilla-dmz
 xf86-video-amdgpu
 xorg-server
 xorg-xev

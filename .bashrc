@@ -15,6 +15,10 @@ source /usr/share/fzf/completion.bash && source /usr/share/fzf/key-bindings.bash
 HISTSIZE=100000
 HISTFILESIZE=100000
 
+# don't put duplicate lines in the history. See bash(1) for more options
+# ... or force ignoredups and ignorespace
+HISTCONTROL=ignoredups
+
 # adds bash completion for aliases requires bash-complete-alias
 # shellcheck disable=SC1091
 [ -f  /usr/share/bash-complete-alias/complete_alias ] \

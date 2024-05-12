@@ -2,10 +2,10 @@
 # ~/.shrc
 #
 
-if [ "$(id -u)" -eq 0 ];
-        then PS1='# '
-        else PS1='$ '
-fi
+ if [ "$(id -u)" -eq 0 ];
+         then PS1='# '
+         else PS1='$ '
+ fi
 
 XDG_CONFIG_HOME=$HOME/.config; export XDG_CONFIG_HOME
 if [ -f ${XDG_CONFIG_HOME}/user-dirs.dirs ]; then
