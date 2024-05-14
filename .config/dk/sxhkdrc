@@ -3,7 +3,7 @@ super + {Return, shift + Return}
     {st, st -c 'st-float'}
 
 # rofi
-{super + space, mod3 + r, ctrl + Tab, alt + p}
+{super + space, alt + r, ctrl + Tab, alt + p}
     {rofi -show drun, rofi -show run -disable-history,\
     rofi -show window, rofi-pass}
 
@@ -118,7 +118,7 @@ super + {_,shift + }{i,d}
 
 # change gap width
 super + {equal,minus}
-	dkcmd set gap width {+1,-1}
+	dkcmd set gap {+1,-1}
 
 # change border widths
 super + ctrl + {_,shift + }{equal,minus}
