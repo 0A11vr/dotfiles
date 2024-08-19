@@ -38,11 +38,14 @@ ruby-asciidoctor-diagram
 simple-mtpfs
 slip
 spotify-adblock
-tor-browser
+tor-browser-bin
 ttf-apple-emoji
 ttf-mac-fonts
 typora-free
 upscayl-bin
 vesktop
 wps-office
+xclicker
+xtitle
 yay
+yt-dlp-drop-in

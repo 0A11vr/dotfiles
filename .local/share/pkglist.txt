@@ -45,7 +45,6 @@ mpd
 mpv
 ncmpcpp
 net-tools
-network-manager-applet
 nmap
 ntp
 numlockx
