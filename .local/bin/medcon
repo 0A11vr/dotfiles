@@ -1,6 +1,6 @@
 #!/bin/sh
 
-players=spotify,firefox,mpd
+players=spotube,spotify,firefox,mpd
 
 mediacontrol() {
     case $1 in
