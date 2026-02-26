@@ -95,12 +95,12 @@ configuration {
 /*	kb-accept-custom: "Control+Return";*/
 /*	kb-accept-alt: "Shift+Return";*/
 /*	kb-delete-entry: "Shift+Delete";*/
-	kb-mode-next: "Alt+l";
-	kb-mode-previous: "Alt+h";
+/* kb-mode-next: "Alt+l";*/
+/* kb-mode-previous: "Alt+h";*/
 /*	kb-row-left: "Control+Page_Up";*/
 /*	kb-row-right: "Control+Page_Down";*/
-	kb-row-up: "Alt+k";
-	kb-row-down: "Alt+j";
+/* kb-row-up: "Alt+k";*/
+/* kb-row-down: "Alt+j";*/
 /*	kb-row-tab: "Tab";*/
 /*	kb-page-prev: "Page_Up";*/
 /*	kb-page-next: "Page_Down";*/
