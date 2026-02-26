@@ -3,9 +3,9 @@ super + {Return, shift + Return}
     {st, st -c 'st-float'}
 
 # rofi
-{super + space, alt + r, ctrl + Tab, alt + p}
+{super + space, alt + r, ctrl + Tab, alt + p, alt + shift + p}
     {rofi -show drun, rofi -show run -disable-history,\
-    rofi -show window, rofi-pass}
+    rofi -show window, rofi-pass, keepmenu}
 
 # launch programs
 #mod3 + { b, d, e, f, g, s, t, z}
@@ -75,8 +75,8 @@ super + {w,shift + m,Tab}
 	dkcmd win {full,fakefull}
 
 # toggle floating or sticky
-super + shift + {f,s}
-	dkcmd win {float,stick}
+super + shift + {f,s,u}
+	dkcmd win {float,stick,scratch}
 
 # move window, signed (+/-) for relative changes
 super + shift + {h,j,k,l}
